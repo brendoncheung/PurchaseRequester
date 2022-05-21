@@ -2,7 +2,7 @@
 
 namespace PurchaseRequester.Application.Requests.Commands
 {
-    public interface IAddARequest
+    public interface IAddRequest
     {
         void Execute(Request request);
     }

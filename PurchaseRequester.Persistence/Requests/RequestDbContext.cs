@@ -8,7 +8,7 @@ namespace PurchaseRequester.Persistence.Requests
     {
         public DbSet<Request> Requests { get; set; }
 
-        public void AddARequest(Request request)
+        public void AddRequest(Request request)
         {
             Requests.Add(request);
             this.SaveChanges();
@@ -29,6 +29,12 @@ namespace PurchaseRequester.Persistence.Requests
         {
             optionsBuilder.UseSqlite("Data Source=.\\testing.db");
             base.OnConfiguring(optionsBuilder);
+        }
+
+        public void RemoveRequest(Request request)
+        {
+            Requests.Remove(request);
+            this.SaveChanges();
         }
     }
 }

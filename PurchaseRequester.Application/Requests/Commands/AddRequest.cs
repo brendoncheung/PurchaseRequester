@@ -8,18 +8,18 @@ using PurchaseRequester.Domain.Requests;
 
 namespace PurchaseRequester.Application.Requests.Commands
 {
-    public class AddARequest : IAddARequest
+    public class AddRequest : IAddRequest
     {
         private readonly IDatabaseService database;
 
-        public AddARequest(IDatabaseService database)
+        public AddRequest(IDatabaseService database)
         {
             this.database = database;
         }
 
         public void Execute(Request request)
         {
-            database.AddARequest(request);
+            database.AddRequest(request);
         }
 
     }

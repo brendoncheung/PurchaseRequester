@@ -13,6 +13,7 @@ namespace PurchaseRequester.Application.Database
         public IEnumerable<Request> GetAllRequestList();
 
         // Commands
-        public void AddARequest(Request request);
+        public void AddRequest(Request request);
+        public void RemoveRequest(Request request);
     }
 }
