@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using PurchaseRequester.Application.Database;
 using PurchaseRequester.Domain.Requests;
 
@@ -21,27 +22,33 @@ namespace PurchaseRequester.Persistence.Requests
         }
 
         public IEnumerable<Request> GetAllRequestList()
-        {
+        {   
             return Requests;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=.\\testing.db");
+            optionsBuilder.UseSqlite(
+                "Data Source=..\\testing.db")
+                .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information)
+                .EnableSensitiveDataLogging()
+                ;
+
             base.OnConfiguring(optionsBuilder);
         }
 
         public void RemoveRequest(Request request)
         {
-            Requests.Remove(request);
+            this.Remove(request);
             this.SaveChanges();
         }
 
         public void UpdateRequest(Request request)
         {
-            Requests.Update(request);
+            var old = Requests.Where(s => s.Id == request.Id).First();
+            Console.WriteLine(old.ToString());
+            old = request;
             this.SaveChanges();
-
         }
     }
 }

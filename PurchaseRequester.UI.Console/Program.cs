@@ -6,7 +6,6 @@ using PurchaseRequester.Domain.Requests;
 using PurchaseRequester.Persistence.Requests;
 using PurchaseRequester.UI.Console.Requests.Repository;
 
-Console.WriteLine("Hello, World!");
 IDatabaseService database = new RequestDbContext();
 IGetAllRequestList getAllRequestList = new GetAllRequestList(database);
 IAddRequest createARequest = new AddRequest(database);
@@ -26,15 +25,14 @@ Request request = new Request()
 };
 
 repo.AddARequest(request);
-repo.RemoveRequest(request);
 
 request.PartNo = "2345";
 
 repo.UpdateRequest(request);
 
-
+var list = repo.GetAllRequests().ToList();
 Console.WriteLine("Items in db: ");
-foreach (Request r in repo.GetAllRequests())
+foreach (Request r in list)
 {
     Console.WriteLine(r.PartNo);
 }
