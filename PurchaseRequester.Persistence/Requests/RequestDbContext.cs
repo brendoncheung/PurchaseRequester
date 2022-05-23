@@ -36,5 +36,12 @@ namespace PurchaseRequester.Persistence.Requests
             Requests.Remove(request);
             this.SaveChanges();
         }
+
+        public void UpdateRequest(Request request)
+        {
+            Requests.Update(request);
+            this.SaveChanges();
+
+        }
     }
 }

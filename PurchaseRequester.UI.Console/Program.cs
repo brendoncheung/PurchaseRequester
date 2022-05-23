@@ -11,8 +11,14 @@ IDatabaseService database = new RequestDbContext();
 IGetAllRequestList getAllRequestList = new GetAllRequestList(database);
 IAddRequest createARequest = new AddRequest(database);
 IRemoveRequest removeARequest = new RemoveRequest(database);    
+IUpdateRequest updateARequest = new UpdateRequest(database);
 
-RequestRepository repo = new RequestRepository(createARequest, getAllRequestList, removeARequest);
+RequestRepository repo = new RequestRepository(
+    createARequest, 
+    getAllRequestList, 
+    removeARequest,
+    updateARequest
+    );
 
 Request request = new Request()
 {
@@ -21,6 +27,11 @@ Request request = new Request()
 
 repo.AddARequest(request);
 repo.RemoveRequest(request);
+
+request.PartNo = "2345";
+
+repo.UpdateRequest(request);
+
 
 Console.WriteLine("Items in db: ");
 foreach (Request r in repo.GetAllRequests())

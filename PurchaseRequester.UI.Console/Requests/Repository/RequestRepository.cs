@@ -10,7 +10,7 @@ namespace PurchaseRequester.UI.Console.Requests.Repository
         private readonly IGetAllRequestList _getAllRequests;
         private readonly IRemoveRequest removeRequest;
 
-        public RequestRepository(IAddRequest createARequest, IGetAllRequestList getAllRequests, IRemoveRequest removeRequest)
+        public RequestRepository(IAddRequest createARequest, IGetAllRequestList getAllRequests, IRemoveRequest removeRequest, IUpdateRequest updateRequest)
         {
             _addARequest = createARequest;
             _getAllRequests = getAllRequests;
@@ -31,6 +31,11 @@ namespace PurchaseRequester.UI.Console.Requests.Repository
         public Request RemoveRequest(Request request)
         {
             return removeRequest.Execute(request);
+        }
+
+        public void UpdateRequest(Request request)
+        {
+            removeRequest.Execute(request);
         }
     }
 }

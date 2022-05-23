@@ -15,5 +15,6 @@ namespace PurchaseRequester.Application.Database
         // Commands
         public void AddRequest(Request request);
         public void RemoveRequest(Request request);
+        public void UpdateRequest(Request request);
     }
 }
