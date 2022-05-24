@@ -28,8 +28,6 @@ repo.AddARequest(request);
 
 request.PartNo = "2345";
 
-repo.UpdateRequest(request);
-
 var list = repo.GetAllRequests().ToList();
 Console.WriteLine("Items in db: ");
 foreach (Request r in list)

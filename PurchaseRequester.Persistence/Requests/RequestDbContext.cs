@@ -45,9 +45,7 @@ namespace PurchaseRequester.Persistence.Requests
 
         public void UpdateRequest(Request request)
         {
-            var old = Requests.Where(s => s.Id == request.Id).First();
-            Console.WriteLine(old.ToString());
-            old = request;
+            this.Update(request);
             this.SaveChanges();
         }
     }

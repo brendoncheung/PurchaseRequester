@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PurchaseRequester.Domain", "PurchaseRequester.Domain\PurchaseRequester.Domain.csproj", "{31BF3B3E-AC47-424F-B659-4EF20E7289A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PurchaseRequester.Domain", "PurchaseRequester.Domain\PurchaseRequester.Domain.csproj", "{31BF3B3E-AC47-424F-B659-4EF20E7289A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PurchaseRequester.Application", "PurchaseRequester.Application\PurchaseRequester.Application.csproj", "{A0129DD1-ECC5-424B-95B8-C359E4219278}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PurchaseRequester.Application", "PurchaseRequester.Application\PurchaseRequester.Application.csproj", "{A0129DD1-ECC5-424B-95B8-C359E4219278}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PurchaseRequester.Persistence", "PurchaseRequester.Persistence\PurchaseRequester.Persistence.csproj", "{580999AA-D7DE-4277-91AA-924D5869DB44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PurchaseRequester.Persistence", "PurchaseRequester.Persistence\PurchaseRequester.Persistence.csproj", "{580999AA-D7DE-4277-91AA-924D5869DB44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PurchaseRequester.UI.Console", "PurchaseRequester.UI.Console\PurchaseRequester.UI.Console.csproj", "{1ADF955C-0F6A-4EF5-8579-FAE101C71BDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PurchaseRequester.UI.Console", "PurchaseRequester.UI.Console\PurchaseRequester.UI.Console.csproj", "{1ADF955C-0F6A-4EF5-8579-FAE101C71BDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PurchaseRequester.UI.WPF", "PurchaseRequester.UI.WPF\PurchaseRequester.UI.WPF.csproj", "{9D5BF1E8-948A-4838-BD77-52239FAF8F84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1ADF955C-0F6A-4EF5-8579-FAE101C71BDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1ADF955C-0F6A-4EF5-8579-FAE101C71BDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1ADF955C-0F6A-4EF5-8579-FAE101C71BDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D5BF1E8-948A-4838-BD77-52239FAF8F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D5BF1E8-948A-4838-BD77-52239FAF8F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D5BF1E8-948A-4838-BD77-52239FAF8F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D5BF1E8-948A-4838-BD77-52239FAF8F84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
