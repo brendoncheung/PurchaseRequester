@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Requests\ViewModel\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\PurchaseRequester.Application\PurchaseRequester.Application.csproj" />
     <ProjectReference Include="..\PurchaseRequester.Domain\PurchaseRequester.Domain.csproj" />
     <ProjectReference Include="..\PurchaseRequester.Persistence\PurchaseRequester.Persistence.csproj" />
