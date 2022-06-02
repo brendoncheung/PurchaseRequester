@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PurchaseRequester.Domain.Requests;
 
-namespace PurchaseRequester.Application.Database
+namespace PurchaseRequester.Core.Database
 {
     public interface IDatabaseService
     {

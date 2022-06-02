@@ -1,6 +1,6 @@
 ﻿using PurchaseRequester.Domain.Requests;
 
-namespace PurchaseRequester.Application.Requests.Queries
+namespace PurchaseRequester.Core.Requests.Queries
 {
     public interface IGetAllRequestList
     {

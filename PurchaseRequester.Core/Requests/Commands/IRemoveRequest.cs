@@ -1,6 +1,6 @@
 ﻿using PurchaseRequester.Domain.Requests;
 
-namespace PurchaseRequester.Application.Requests.Commands
+namespace PurchaseRequester.Core.Requests.Commands
 {
     public interface IRemoveRequest
     {

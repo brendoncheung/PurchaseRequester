@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PurchaseRequester.Application.Database;
+using PurchaseRequester.Core.Database;
 using PurchaseRequester.Domain.Requests;
 
-namespace PurchaseRequester.Application.Requests.Commands
+namespace PurchaseRequester.Core.Requests.Commands
 {
     public class AddRequest : IAddRequest
     {

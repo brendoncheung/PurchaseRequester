@@ -1,5 +1,5 @@
-﻿using PurchaseRequester.Application.Requests.Commands;
-using PurchaseRequester.Application.Requests.Queries;
+﻿using PurchaseRequester.Core.Requests.Commands;
+using PurchaseRequester.Core.Requests.Queries;
 using PurchaseRequester.Domain.Requests;
 
 namespace PurchaseRequester.UI.Console.Requests.Repository

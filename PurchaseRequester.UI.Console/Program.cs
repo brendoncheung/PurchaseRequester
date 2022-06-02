@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using PurchaseRequester.Application.Database;
-using PurchaseRequester.Application.Requests.Commands;
-using PurchaseRequester.Application.Requests.Queries;
+using PurchaseRequester.Core.Database;
+using PurchaseRequester.Core.Requests.Commands;
+using PurchaseRequester.Core.Requests.Queries;
 using PurchaseRequester.Domain.Requests;
 using PurchaseRequester.Persistence.Requests;
 using PurchaseRequester.UI.Console.Requests.Repository;

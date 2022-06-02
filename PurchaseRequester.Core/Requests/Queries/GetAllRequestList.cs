@@ -1,7 +1,7 @@
-﻿using PurchaseRequester.Application.Database;
+﻿using PurchaseRequester.Core.Database;
 using PurchaseRequester.Domain.Requests;
 
-namespace PurchaseRequester.Application.Requests.Queries
+namespace PurchaseRequester.Core.Requests.Queries
 {
     public class GetAllRequestList : IGetAllRequestList
     {

@@ -16,7 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PurchaseRequester.Application\PurchaseRequester.Application.csproj" />
+    <ProjectReference Include="..\PurchaseRequester.Application\PurchaseRequester.Core.csproj" />
+    <ProjectReference Include="..\PurchaseRequester.Core\PurchaseRequester.Core.csproj" />
   </ItemGroup>
 
 </Project>

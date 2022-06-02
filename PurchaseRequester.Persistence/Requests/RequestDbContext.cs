@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using PurchaseRequester.Application.Database;
+using PurchaseRequester.Core.Database;
 using PurchaseRequester.Domain.Requests;
 
 namespace PurchaseRequester.Persistence.Requests
