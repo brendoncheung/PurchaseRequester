@@ -13,11 +13,6 @@ namespace PurchaseRequester.UI.WPF
             this.ViewModel = ViewModel;
         }
 
-        private void fetchRequest_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void addRequest_Click(object sender, RoutedEventArgs e)
         {
 

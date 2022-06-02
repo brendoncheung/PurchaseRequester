@@ -7,15 +7,13 @@ namespace PurchaseRequester.UI.WPF.Requests.ViewModel
 {
     public class RequestListViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<Request> Requests;
         private readonly RequestRepository repository;
 
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public RequestListViewModel(ObservableCollection<Request> request, RequestRepository repository)
+        public RequestListViewModel(RequestRepository repository)
         {
-            this.Requests = request;
             this.repository = repository;
         }
 
@@ -26,8 +24,8 @@ namespace PurchaseRequester.UI.WPF.Requests.ViewModel
 
         public void LoadAllRequests()
         {
-            Requests.Clear();
-            repository.GetRequests().ForEach(r => Requests.Add(r));
+/*            Requests.Clear();
+            repository.GetRequests().ForEach(r => Requests.Add(r));*/
         }
          
     }
