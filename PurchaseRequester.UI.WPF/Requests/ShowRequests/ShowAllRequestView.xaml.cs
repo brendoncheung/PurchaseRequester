@@ -12,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel;
 
-namespace PurchaseRequester.UI.WPF.Requests.AddRequests
+namespace PurchaseRequester.UI.WPF.Requests.ShowRequests
 {
     /// <summary>
-    /// Interaction logic for AddRequestView.xaml
+    /// Interaction logic for ShowAllRequestView.xaml
     /// </summary>
-    public partial class AddRequestView : UserControl
+    public partial class ShowAllRequestView : UserControl
     {
-        public AddRequestView()
+        public ShowAllRequestView()
         {
             InitializeComponent();
         }

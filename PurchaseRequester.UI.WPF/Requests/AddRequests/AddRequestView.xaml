@@ -6,7 +6,19 @@
              xmlns:local="clr-namespace:PurchaseRequester.UI.WPF.Requests.AddRequests"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="White">
-    <Grid>
+
+    <UserControl.Resources>
+        <ControlTemplate x:Key="formRow" TargetType="ContentControl">
+            <StackPanel Margin="0 0 0 8">
+                <TextBlock DockPanel.Dock="Left" 
+                           Margin="0 0 8 0"
+                           Text="{TemplateBinding Content}"/>
+                <TextBox/>
+            </StackPanel>
+        </ControlTemplate>
+    </UserControl.Resources>
+    
+    <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
@@ -18,18 +30,22 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Add Request" FontSize="36" Grid.ColumnSpan="2"/>
+        <TextBlock Text="Add Request" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>
 
-        <CheckBox Grid.Row="1" VerticalAlignment="Center">
+        <CheckBox Grid.Row="1" 
+                  VerticalAlignment="Center">
             <TextBlock 
                 Text="Emergency Buy" Foreground="Red" FontWeight="Bold"/>
         </CheckBox>
 
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" 
-                    Orientation="Horizontal" >
-            <TextBlock Text="Description:"/>
-            <TextBox HorizontalAlignment="Stretch"/>
-
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
+            <ContentControl Content="Catagory: " Template="{StaticResource formRow}"/>
+            <ContentControl Content="FI Number: " Template="{StaticResource formRow}"/>
+            <ContentControl Content="Model Number: " Template="{StaticResource formRow}"/>
+            <ContentControl Content="Used In: " Template="{StaticResource formRow}"/>
+            <ContentControl Content="Cost: " Template="{StaticResource formRow}"/>
+            <ContentControl Content="Link: " Template="{StaticResource formRow}"/>
+            <ContentControl Content="Descriptionz; " Template="{StaticResource formRow}"/>
         </StackPanel>
     </Grid>
 </UserControl>
