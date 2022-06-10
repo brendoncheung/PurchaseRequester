@@ -16,7 +16,7 @@ namespace PurchaseRequester.Domain.Requests
         public string LeadTime { get; set; }
         public string CreatedDate = DateTime.Now.ToString();
         public string RequestedTime;
-        public Catagory catagory { get; set; }
+        public Catagory catagory = Catagory.MISC;
         public RequestStatus Status = RequestStatus.PENDING;
 
         public override bool Equals(object obj)

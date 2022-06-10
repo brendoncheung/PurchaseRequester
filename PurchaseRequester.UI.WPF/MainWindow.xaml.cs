@@ -13,11 +13,19 @@ namespace PurchaseRequester.UI.WPF
             this.ViewModel = ViewModel;
         }
 
-        private void addRequest_Click(object sender, RoutedEventArgs e)
+        private void HomeButton_Clicked(object sender, RoutedEventArgs e)
         {
 
         }
 
+        private void MyRequestButton_Clicked(object sender, RoutedEventArgs e)
+        {
 
+        }
+
+        private void AddRequestButton_Clicked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
