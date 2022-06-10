@@ -36,17 +36,23 @@ namespace PurchaseRequester.UI.WPF
 
         private void ConfigureServices(ServiceCollection service)
         {
-            service.AddTransient<IDatabaseService, RequestDbContext>();
-            service.AddTransient<AddRequest>();
-            service.AddTransient<GetAllRequestList>();
-            service.AddTransient<RequestRepository>();
+
+            // Services
+            service.AddTransient<IAddRequest, AddRequest>();
+            service.AddTransient<IGetAllRequestList, GetAllRequestList>();
+
+            // Database
+            service.AddSingleton<IDatabaseService, RequestDbContext>();
+
+            // Repositories
+            service.AddSingleton<RequestRepository>();
 
             // ViewModel injection
-
             service.AddTransient<RequestListViewModel>();
             service.AddTransient<MainWindowViewModel>();
             service.AddTransient<AddRequestViewModel>();
             service.AddTransient<ShowAllRequestViewModel>();
+
 
             service.AddTransient<MainWindow>();
 

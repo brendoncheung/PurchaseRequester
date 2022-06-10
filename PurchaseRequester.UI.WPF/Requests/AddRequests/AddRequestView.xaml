@@ -9,11 +9,13 @@
 
     <UserControl.Resources>
         <ControlTemplate x:Key="formRow" TargetType="ContentControl">
-            <StackPanel Margin="0 0 0 8">
-                <TextBlock DockPanel.Dock="Left" 
-                           Margin="0 0 8 0"
-                           Text="{TemplateBinding Content}"/>
-                <TextBox/>
+            <StackPanel Margin="0 0 0 16">
+                <TextBlock 
+                    DockPanel.Dock="Left" 
+                           Margin="0 0 0 0"
+                           Text="{TemplateBinding Content}"
+                           FontWeight="Bold"/>
+                <TextBox Margin="0 8 0 0" Height="{TemplateBinding Height}"/>
             </StackPanel>
         </ControlTemplate>
     </UserControl.Resources>
@@ -27,7 +29,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="Add Request" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>
@@ -38,14 +40,18 @@
                 Text="Emergency Buy" Foreground="Red" FontWeight="Bold"/>
         </CheckBox>
 
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
-            <ContentControl Content="Catagory: " Template="{StaticResource formRow}"/>
-            <ContentControl Content="FI Number: " Template="{StaticResource formRow}"/>
-            <ContentControl Content="Model Number: " Template="{StaticResource formRow}"/>
-            <ContentControl Content="Used In: " Template="{StaticResource formRow}"/>
-            <ContentControl Content="Cost: " Template="{StaticResource formRow}"/>
-            <ContentControl Content="Link: " Template="{StaticResource formRow}"/>
-            <ContentControl Content="Descriptionz; " Template="{StaticResource formRow}"/>
-        </StackPanel>
+
+        <ScrollViewer Grid.Row="2" Grid.ColumnSpan="2">
+            <StackPanel>
+                <ComboBox Width="50" HorizontalAlignment="Left" ItemsSource="{Binding AddRequestViewModel.Catagories}"/>
+                <ContentControl Content="FI Number: " Template="{StaticResource formRow}"/>
+                <ContentControl Content="Model Number: " Template="{StaticResource formRow}"/>
+                <ContentControl Content="Used In: " Template="{StaticResource formRow}"/>
+                <ContentControl Content="Cost: " Template="{StaticResource formRow}"/>
+                <ContentControl Content="Link: " Template="{StaticResource formRow}"/>
+                <ContentControl Content="Descriptions: " Template="{StaticResource formRow}"/>
+            </StackPanel>
+        </ScrollViewer>
+       
     </Grid>
 </UserControl>

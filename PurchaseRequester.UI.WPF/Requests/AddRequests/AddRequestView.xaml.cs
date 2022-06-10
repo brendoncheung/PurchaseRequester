@@ -24,6 +24,9 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests
         public AddRequestView()
         {
             InitializeComponent();
+
+            var dc = (MainWindowViewModel)DataContext;
+
         }
     }
 }
