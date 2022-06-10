@@ -18,21 +18,6 @@ namespace PurchaseRequester.Domain.Requests
         public string RequestedTime;
         public Catagory catagory = Catagory.MISC;
         public RequestStatus Status = RequestStatus.PENDING;
-
-        public override bool Equals(object obj)
-        {
-            return obj is Request request &&
-                   Id == request.Id &&
-                   PartNo == request.PartNo &&
-                   ModelNo == request.ModelNo &&
-                   UsedOn == request.UsedOn &&
-                   Comments == request.Comments &&
-                   LeadTime == request.LeadTime &&
-                   CreatedDate == request.CreatedDate &&
-                   RequestedTime == request.RequestedTime &&
-                   catagory == request.catagory &&
-                   Status == request.Status;
-        }
     }
 
     public enum RequestStatus

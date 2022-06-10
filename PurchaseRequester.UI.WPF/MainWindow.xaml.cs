@@ -7,6 +7,8 @@ namespace PurchaseRequester.UI.WPF
     {
         public readonly RequestListViewModel ViewModel;
 
+
+
         public MainWindow(RequestListViewModel ViewModel)
         {
             InitializeComponent();

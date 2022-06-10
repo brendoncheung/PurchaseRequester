@@ -11,6 +11,7 @@ using PurchaseRequester.Core.Requests.Queries;
 using PurchaseRequester.Persistence.Requests;
 using PurchaseRequester.UI.WPF.Repository.Requests;
 using PurchaseRequester.UI.WPF.Requests.ViewModel;
+using PurchaseRequester.UI.WPF.Requests;
 
 namespace PurchaseRequester.UI.WPF
 {

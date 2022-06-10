@@ -12,21 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PurchaseRequester.UI.WPF.Requests.ViewModel;
+using PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel;
 
-namespace PurchaseRequester.UI.WPF.Requests.Controls
+namespace PurchaseRequester.UI.WPF.Requests.AddRequests
 {
     /// <summary>
-    /// Interaction logic for RequestListView.xaml
+    /// Interaction logic for AddRequestView.xaml
     /// </summary>
-    public partial class RequestListView : UserControl
+    public partial class AddRequestView : UserControl
     {
-        private readonly RequestListViewModel requestListViewModel;
-
-        public RequestListView(RequestListViewModel requestListViewModel)
+        public AddRequestView(AddRequestViewModel addRequestViewModel)
         {
             InitializeComponent();
-            this.requestListViewModel = requestListViewModel;
         }
     }
 }

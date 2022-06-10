@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="PurchaseRequester.UI.WPF.Requests.AddRequests.AddRequestView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PurchaseRequester.UI.WPF.Requests.AddRequests"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Add Request" FontSize="36" Grid.ColumnSpan="2"/>
+
+        <CheckBox Grid.Row="1" VerticalAlignment="Center">
+            <TextBlock 
+                Text="Emergency Buy" Foreground="Red" FontWeight="Bold"/>
+        </CheckBox>
+
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" 
+                    Orientation="Horizontal" >
+            <TextBlock Text="Description:"/>
+            <TextBox HorizontalAlignment="Stretch"/>
+
+        </StackPanel>
+    </Grid>
+</UserControl>
