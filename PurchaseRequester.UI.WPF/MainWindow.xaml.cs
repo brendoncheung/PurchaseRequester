@@ -35,5 +35,10 @@ namespace PurchaseRequester.UI.WPF
             var vm = (MainWindowViewModel)((Button)sender).DataContext;
             ViewModel.SelectViewModel = vm.AddRequestViewModel;
         }
+
+        private void SavedRequestButton_Clicked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -12,15 +12,31 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel
     public class AddRequestViewModel : ViewModelBase
     {
         private readonly RequestRepository requestRepository;
+        public Request Request
+        {
+            get => Request is null? new Request() : Request;
+            set
+            {
+                RaisedPropertChanged();
+            }
+        }
 
-        public List<Catagory> Catagories = new() { 
-            Catagory.TOOLING, 
-            Catagory.MISC, 
-            Catagory.PASSTHOUGH};
+        public DelegateCommand AddCommand { get; }
 
         public AddRequestViewModel(RequestRepository requestRepository)
         {
             this.requestRepository = requestRepository;
+            AddCommand = new DelegateCommand(Add);
+        }
+
+        public void AddRequest(Request request)
+        {
+            requestRepository.AddRequest(request);
+        }
+
+        public void Add(object? parameter)
+        {
+
         }
     }
 }

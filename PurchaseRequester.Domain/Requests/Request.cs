@@ -12,7 +12,8 @@ namespace PurchaseRequester.Domain.Requests
         public string PartNo { get; set; }
         public string ModelNo { get; set; }
         public string UsedOn { get; set; }
-        public string Comments { get; set; }
+        public string Description { get; set; }
+        public double Quantity { get; set; }
         public string LeadTime { get; set; }
         public string CreatedDate = DateTime.Now.ToString();
         public string RequestedTime;

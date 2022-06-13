@@ -49,6 +49,7 @@
             <Button Content="Home" Click="HomeButton_Clicked"></Button>
             <Button Content="My Requests" Click="MyRequestButton_Clicked" Margin="0 10 0 0" ></Button>
             <Button Content="Add Requests" Click="AddRequestButton_Clicked" Margin="0 10 0 0"></Button>
+            <Button Content="Saved Requests" Click="SavedRequestButton_Clicked" Margin="0 10 0 0"></Button>
         </StackPanel>
         
         <!-- Main Window -->

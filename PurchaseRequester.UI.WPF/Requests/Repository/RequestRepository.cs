@@ -22,14 +22,7 @@ namespace PurchaseRequester.UI.WPF.Repository.Requests
 
         public List<Request> GetRequests()
         {
-            var requests = new List<Request>();
-            requests.Add(new Request());
-            requests.Add(new Request());
-            requests.Add(new Request());
-            requests.Add(new Request());
-            return requests;
-
-
+            return getAllRequest.Execute().ToList();
         }
 
         public void AddRequest(Request request)

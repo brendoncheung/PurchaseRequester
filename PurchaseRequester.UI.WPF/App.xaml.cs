@@ -48,10 +48,10 @@ namespace PurchaseRequester.UI.WPF
             service.AddSingleton<RequestRepository>();
 
             // ViewModel injection
-            service.AddTransient<RequestListViewModel>();
-            service.AddTransient<MainWindowViewModel>();
-            service.AddTransient<AddRequestViewModel>();
-            service.AddTransient<ShowAllRequestViewModel>();
+            service.AddSingleton<RequestListViewModel>();
+            service.AddSingleton<MainWindowViewModel>();
+            service.AddSingleton<AddRequestViewModel>();
+            service.AddSingleton<ShowAllRequestViewModel>();
 
 
             service.AddTransient<MainWindow>();

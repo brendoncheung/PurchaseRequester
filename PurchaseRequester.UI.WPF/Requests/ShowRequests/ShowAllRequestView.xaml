@@ -7,43 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <ListView Grid.Row="2" Grid.Column="1">
-            <ListViewItem>Apple</ListViewItem>
-            <ListViewItem>Orange</ListViewItem>
-            <ListViewItem>Strawberry</ListViewItem>
-            <ListViewItem>Apple</ListViewItem>
-            <ListViewItem>Orange</ListViewItem>
-            <ListViewItem>Strawberry</ListViewItem>
-            <ListViewItem>Apple</ListViewItem>
-            <ListViewItem>Orange</ListViewItem>
-            <ListViewItem>Strawberry</ListViewItem>
-            <ListViewItem>Apple</ListViewItem>
-            <ListViewItem>Orange</ListViewItem>
-            <ListViewItem>Strawberry</ListViewItem>
-            <ListViewItem>Apple</ListViewItem>
-            <ListViewItem>Orange</ListViewItem>
-            <ListViewItem>Strawberry</ListViewItem>
-            <ListViewItem>Apple</ListViewItem>
-            <ListViewItem>Orange</ListViewItem>
-            <ListViewItem>Strawberry</ListViewItem>
-            <ListViewItem>Apple</ListViewItem>
-            <ListViewItem>Orange</ListViewItem>
-            <ListViewItem>Strawberry</ListViewItem>
-            <ListViewItem>Apple</ListViewItem>
-            <ListViewItem>Orange</ListViewItem>
-            <ListViewItem>Strawberry</ListViewItem>
-            <ListViewItem>Apple</ListViewItem>
-            <ListViewItem>Orange</ListViewItem>
-            <ListViewItem>Strawberry</ListViewItem>
-            <ListViewItem>Apple</ListViewItem>
-            <ListViewItem>Orange</ListViewItem>
-            <ListViewItem>Strawberry</ListViewItem>
-            <ListViewItem>Apple</ListViewItem>
-            <ListViewItem>Orange</ListViewItem>
-            <ListViewItem>Strawberry</ListViewItem>
-            <ListViewItem>Apple</ListViewItem>
-            <ListViewItem>Orange</ListViewItem>
-            <ListViewItem>Strawberry</ListViewItem>
+        <ListView Grid.Row="2" Grid.Column="1"
+                  ItemsSource="{Binding ShowAllRequestViewModel.Requests}">
+            
         </ListView>
     </Grid>
 </UserControl>

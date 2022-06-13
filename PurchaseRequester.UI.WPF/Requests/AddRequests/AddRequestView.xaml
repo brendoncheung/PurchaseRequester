@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PurchaseRequester.UI.WPF.Requests.AddRequests"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="White">
 
@@ -13,9 +14,8 @@
                 <TextBlock 
                     DockPanel.Dock="Left" 
                            Margin="0 0 0 0"
-                           Text="{TemplateBinding Content}"
                            FontWeight="Bold"/>
-                <TextBox Margin="0 8 0 0" Height="{TemplateBinding Height}"/>
+                <TextBox Margin="0 8 0 0"/>
             </StackPanel>
         </ControlTemplate>
     </UserControl.Resources>
@@ -40,18 +40,23 @@
                 Text="Emergency Buy" Foreground="Red" FontWeight="Bold"/>
         </CheckBox>
 
-
         <ScrollViewer Grid.Row="2" Grid.ColumnSpan="2">
             <StackPanel>
-                <ComboBox Width="50" HorizontalAlignment="Left" ItemsSource="{Binding AddRequestViewModel.Catagories}"/>
-                <ContentControl Content="FI Number: " Template="{StaticResource formRow}"/>
-                <ContentControl Content="Model Number: " Template="{StaticResource formRow}"/>
-                <ContentControl Content="Used In: " Template="{StaticResource formRow}"/>
-                <ContentControl Content="Cost: " Template="{StaticResource formRow}"/>
-                <ContentControl Content="Link: " Template="{StaticResource formRow}"/>
-                <ContentControl Content="Descriptions: " Template="{StaticResource formRow}"/>
+                <ComboBox Width="50" HorizontalAlignment="Left"/>
+                <ContentControl x:Name="FITextBox" Content="FI Number: " Template="{StaticResource formRow}"/>
+                <ContentControl x:Name="ModelTextBox" Content="Model Number: " Template="{StaticResource formRow}"/>
+                <ContentControl x:Name="UsedInTextBox" Content="Used In: " Template="{StaticResource formRow}"/>
+                <ContentControl x:Name="CostTextBox" Content="Cost: " Template="{StaticResource formRow}"/>
+                <ContentControl x:Name="QuanitytBox" Content="Quantity: " Template="{StaticResource formRow}"/>
+                <ContentControl x:Name="LinkTextBox" Content="Link: " Template="{StaticResource formRow}"/>
+                <ContentControl x:Name="DescriptionTextBox" Content="Descriptions: " Template="{StaticResource formRow}"/>
+
+                <StackPanel>
+                    <Button Content="Submit" Click="SubmitButton_Clicked"/>
+                    <Button Content="Save" Click="SaveButton_Clicked"/>
+                    <Button Content="Cancel" Click="CancelButton_Clicked"/>
+                </StackPanel>
             </StackPanel>
         </ScrollViewer>
-       
     </Grid>
 </UserControl>

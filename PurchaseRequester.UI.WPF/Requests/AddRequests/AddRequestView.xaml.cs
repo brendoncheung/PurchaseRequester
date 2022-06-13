@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PurchaseRequester.Domain.Requests;
 using PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel;
 
 namespace PurchaseRequester.UI.WPF.Requests.AddRequests
@@ -22,11 +23,25 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests
     public partial class AddRequestView : UserControl
     {
         public AddRequestView()
-        {
+        { 
             InitializeComponent();
+        }
 
-            var dc = (MainWindowViewModel)DataContext;
+        private void SubmitButton_Clicked(object sender, RoutedEventArgs e)         
+        {
+        }
 
+        private void SaveButton_Clicked(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void CancelButton_Clicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void showWorkingRequest()
+        {
         }
     }
 }
