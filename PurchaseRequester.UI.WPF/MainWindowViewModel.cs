@@ -16,6 +16,7 @@ public class MainWindowViewModel : ViewModelBase
 
     private ViewModelBase? _selectedViewModel;
 
+    public DelegateCommand SelectViewModelCommand { get; }
     public ViewModelBase? SelectedViewModel
     {
         get { return _selectedViewModel; }
@@ -32,9 +33,9 @@ public class MainWindowViewModel : ViewModelBase
         SetInitialView(showRequestViewModel);
     }
 
-    private void SetInitialView(ViewModelBase showRequestViewModel)
+    private void SetInitialView(ViewModelBase viewModel)
     {
-        _selectedViewModel = AddRequestViewModel;
+        _selectedViewModel = viewModel;
     }
 
     public ViewModelBase? SelectViewModel

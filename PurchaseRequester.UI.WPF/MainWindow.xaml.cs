@@ -9,20 +9,19 @@ namespace PurchaseRequester.UI.WPF
     public partial class MainWindow : Window
     {
         public readonly MainWindowViewModel ViewModel;
-        public readonly AddRequestViewModel AddRequestViewModel;
+   
 
-        public MainWindow(MainWindowViewModel ViewModel, AddRequestViewModel addRequestViewModel)
+        public MainWindow(MainWindowViewModel ViewModel)
         {
             InitializeComponent();
             this.ViewModel = ViewModel;
-            this.AddRequestViewModel = addRequestViewModel;
             DataContext = ViewModel;
         }
 
         private void HomeButton_Clicked(object sender, RoutedEventArgs e)
         {
-            var vm = (MainWindowViewModel)((Button)sender).DataContext;
-            ViewModel.SelectViewModel = vm.ShowRequestViewModel;
+            
+            ViewModel.SelectViewModel = ViewModel.ShowRequestViewModel;
         }
 
         private void MyRequestButton_Clicked(object sender, RoutedEventArgs e)
@@ -32,8 +31,7 @@ namespace PurchaseRequester.UI.WPF
 
         private void AddRequestButton_Clicked(object sender, RoutedEventArgs e)
         {
-            var vm = (MainWindowViewModel)((Button)sender).DataContext;
-            ViewModel.SelectViewModel = vm.AddRequestViewModel;
+            ViewModel.SelectedViewModel = ViewModel.AddRequestViewModel;
         }
 
         private void SavedRequestButton_Clicked(object sender, RoutedEventArgs e)

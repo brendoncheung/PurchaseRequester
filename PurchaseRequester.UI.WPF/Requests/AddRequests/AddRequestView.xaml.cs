@@ -29,6 +29,7 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests
 
         private void SubmitButton_Clicked(object sender, RoutedEventArgs e)         
         {
+
         }
 
         private void SaveButton_Clicked(object sender, RoutedEventArgs e)
