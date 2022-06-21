@@ -30,7 +30,7 @@ public class MainWindowViewModel : ViewModelBase
         ShowRequestViewModel = showRequestViewModel;
         AddRequestViewModel = addRequestViewModel;
 
-        SetInitialView(showRequestViewModel);
+        SetInitialView(addRequestViewModel);
     }
 
     private void SetInitialView(ViewModelBase viewModel)
