@@ -7,9 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <ListView Grid.Row="2" Grid.Column="1"
-                  ItemsSource="{Binding ShowAllRequestViewModel.Requests}">
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ListView Grid.Row="0"
+                  ItemsSource="{Binding Requests}">
         </ListView>
+
+        <StackPanel Grid.Row="1">
+            <Button Content="Refresh" Click="Refresh_Clicked"/>
+        </StackPanel>
     </Grid>
 </UserControl>

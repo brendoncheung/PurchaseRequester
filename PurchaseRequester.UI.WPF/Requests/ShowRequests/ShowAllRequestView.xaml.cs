@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PurchaseRequester.Domain.Requests;
+using PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel;
 
 namespace PurchaseRequester.UI.WPF.Requests.ShowRequests
 {
@@ -20,9 +22,24 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests
     /// </summary>
     public partial class ShowAllRequestView : UserControl
     {
+
+        public ShowAllRequestViewModel ViewModel { get; private set; }
+       
         public ShowAllRequestView()
         {
             InitializeComponent();
+            this.Loaded += ShowAllRequestView_Loaded;
+        }
+
+
+        private void Refresh_Clicked(object sender, RoutedEventArgs e)
+        {
+            ViewModel.GetAllRequest();
+        }
+
+        private void ShowAllRequestView_Loaded(object sender, RoutedEventArgs e)
+        {
+            ViewModel = (ShowAllRequestViewModel)DataContext;
         }
     }
 }

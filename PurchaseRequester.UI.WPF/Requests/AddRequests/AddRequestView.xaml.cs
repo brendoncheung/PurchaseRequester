@@ -22,7 +22,7 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests
     /// </summary>
     public partial class AddRequestView : UserControl
     {
-        public AddRequestViewModel dc { get; private set; }
+        public AddRequestViewModel ViewModel { get; private set; }
 
         public AddRequestView()
         { 
@@ -33,7 +33,7 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests
 
         private void SubmitButton_Clicked(object sender, RoutedEventArgs e)         
         {
-            dc.AddRequest(new Request { PartNo="123" });
+            ViewModel.AddRequest(new Request { PartNo="123" });
         }
 
         private void SaveButton_Clicked(object sender, RoutedEventArgs e)
@@ -47,8 +47,8 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests
 
         public void AddRequestView_Loaded(object sender, RoutedEventArgs e)
         {
-            dc = (AddRequestViewModel)DataContext;
-            MessageBox.Show(dc.ToString());
+            ViewModel = (AddRequestViewModel)DataContext;
+            MessageBox.Show(ViewModel.ToString());
         }
     }
 }

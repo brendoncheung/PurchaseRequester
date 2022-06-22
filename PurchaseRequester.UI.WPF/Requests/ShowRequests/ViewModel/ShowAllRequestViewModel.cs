@@ -20,7 +20,7 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel
             set
             {
                 _requests = value;
-                RaisedPropertChanged(nameof(Request));
+                RaisedPropertChanged();
             }
         }
 
@@ -32,7 +32,7 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel
 
         public List<Request> GetAllRequest()
         {
-
+            _requests = RequestRepository.GetRequests().ToList();
             return RequestRepository.GetRequests().ToList();
         }
     }
