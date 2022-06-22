@@ -33,7 +33,7 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests
 
         private void SubmitButton_Clicked(object sender, RoutedEventArgs e)         
         {
-            ViewModel.AddRequest(new Request { PartNo="123" });
+            ViewModel.AddRequest();
         }
 
         private void SaveButton_Clicked(object sender, RoutedEventArgs e)

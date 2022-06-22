@@ -12,9 +12,20 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel
     public class AddRequestViewModel : ViewModelBase
     {
         private readonly RequestRepository requestRepository;
+
+        private Request _request;
+
         public Request Request
         {
-            get => Request is null? new Request() : Request;
+            get
+            {
+                if(_request is null)
+                {
+                    _request = new Request();
+                }
+                return _request;
+ 
+            }
             set
             {
                 RaisedPropertChanged();
@@ -29,9 +40,9 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel
             AddCommand = new DelegateCommand(Add);
         }
 
-        public void AddRequest(Request request)
+        public void AddRequest()
         {
-            requestRepository.AddRequest(new Request { PartNo="123"});
+            requestRepository.AddRequest(_request);
         }
 
         public void Add(object? parameter)

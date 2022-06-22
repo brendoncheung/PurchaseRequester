@@ -9,6 +9,14 @@
              d:DesignHeight="450" d:DesignWidth="800" Background="White">
 
     <UserControl.Resources>
+
+        <ControlTemplate x:Key="formRowLabel" TargetType="Label">
+            <TextBlock Text="{TemplateBinding Content}" FontSize="12" FontWeight="Bold"/>
+        </ControlTemplate>
+        
+    </UserControl.Resources>
+
+    <!--<UserControl.Resources>
         <ControlTemplate x:Key="formRow" TargetType="ContentControl">
             <StackPanel Margin="0 0 0 16">
                 <TextBlock 
@@ -19,7 +27,7 @@
                 <TextBox Margin="0 8 0 0"/>
             </StackPanel>
         </ControlTemplate>
-    </UserControl.Resources>
+    </UserControl.Resources>-->
     
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
@@ -29,13 +37,20 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+
         </Grid.RowDefinitions>
 
         <TextBlock Text="Add Request" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>
 
-        <CheckBox Grid.Row="1" 
+        <CheckBox Margin="8" Grid.Row="1" 
                   VerticalAlignment="Center">
             <TextBlock 
                 Text="Emergency Buy" Foreground="Red" FontWeight="Bold"/>
@@ -44,13 +59,43 @@
         <ScrollViewer Grid.Row="2" Grid.ColumnSpan="2">
             <StackPanel>
                 <ComboBox Width="50" HorizontalAlignment="Left"/>
-                <ContentControl x:Name="FITextBox" Content="FI Number: " Template="{StaticResource formRow}"/>
+
+                <Label Grid.Row="3" Content="FI Number: " Template="{StaticResource formRowLabel}"/>
+                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Request.PartNo, Mode=TwoWay}"/>
+
+                <Label Grid.Row="4" Content="Model Number: " Template="{StaticResource formRowLabel}"/>
+                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Request.ModelNo, Mode=TwoWay}"/>
+
+                <Label Grid.Row="5" Content="Used In: " Template="{StaticResource formRowLabel}"/>
+                <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Request.UsedOn, Mode=TwoWay}"/>
+
+                <Label Grid.Row="6" Content="Quantity: " Template="{StaticResource formRowLabel}"/>
+                <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Request.Quantity, Mode=TwoWay}"/>
+
+                <Label Grid.Row="7" Content="Description: " Template="{StaticResource formRowLabel}"/>
+                <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Request.Description, Mode=TwoWay}"/>
+
+
+                <!--public int Id { get; set; }
+        public string PartNo { get; set; }
+        public string ModelNo { get; set; }
+        public string UsedOn { get; set; }
+        public string Description { get; set; }
+        public double Quantity { get; set; }
+        public string LeadTime { get; set; }
+        public string CreatedDate = DateTime.Now.ToString();
+        public string RequestedTime;
+        public Catagory catagory = Catagory.MISC;
+        public RequestStatus Status = RequestStatus.PENDING;-->
+
+
+                <!--<ContentControl x:Name="FITextBox" Content="FI Number: " Template="{StaticResource formRow}"/>
                 <ContentControl x:Name="ModelTextBox" Content="Model Number: " Template="{StaticResource formRow}"/>
                 <ContentControl x:Name="UsedInTextBox" Content="Used In: " Template="{StaticResource formRow}"/>
                 <ContentControl x:Name="CostTextBox" Content="Cost: " Template="{StaticResource formRow}"/>
                 <ContentControl x:Name="QuanitytBox" Content="Quantity: " Template="{StaticResource formRow}"/>
                 <ContentControl x:Name="LinkTextBox" Content="Link: " Template="{StaticResource formRow}"/>
-                <ContentControl x:Name="DescriptionTextBox" Content="Descriptions: " Template="{StaticResource formRow}"/>
+                <ContentControl x:Name="DescriptionTextBox" Content="Descriptions: " Template="{StaticResource formRow}"/>-->
 
                 <StackPanel>
                     <Button Content="Submit" Click="SubmitButton_Clicked"/>

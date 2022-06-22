@@ -33,10 +33,13 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel
 
         public List<Request> GetAllRequest()
         {
+            Requests.Clear();
             foreach (Request r in RequestRepository.GetRequests())
             {
                 Requests.Add(r);
             }
+
+            RaisedPropertChanged(nameof(Requests));
 
             return RequestRepository.GetRequests().ToList();
         }

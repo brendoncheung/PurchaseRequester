@@ -12,12 +12,46 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <ListView Grid.Row="0"
-                  ItemsSource="{Binding Requests}">
-        </ListView>
+        <DataGrid Grid.Row="0"
+                  ItemsSource="{Binding Requests}"
+                  AutoGenerateColumns="False"
+                  >
+           
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Fruition Part" Binding="{Binding PartNo}"/>
+                <DataGridTextColumn Header="Model Part" Binding="{Binding ModelNo}"/>
+                <DataGridTextColumn Header="Used On" Binding="{Binding ModelNo}"/>
+                <DataGridTextColumn Header="Lead Time" Binding="{Binding LeadTime}"/>
+                <DataGridTextColumn Header="Created On" Binding="{Binding CreatedDate}"/>
+                <DataGridTextColumn Header="Comment" Binding="{Binding Description}" Width="500">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
 
         <StackPanel Grid.Row="1">
             <Button Content="Refresh" Click="Refresh_Clicked"/>
         </StackPanel>
     </Grid>
 </UserControl>
+
+
+
+
+<!--public int Id { get; set; }
+        public string PartNo { get; set; }
+        public string ModelNo { get; set; }
+        public string UsedOn { get; set; }
+        public string Description { get; set; }
+        public double Quantity { get; set; }
+        public string LeadTime { get; set; }
+        public string CreatedDate = DateTime.Now.ToString();
+        public string RequestedTime;
+        public Catagory catagory = Catagory.MISC;
+        public RequestStatus Status = RequestStatus.PENDING;-->
