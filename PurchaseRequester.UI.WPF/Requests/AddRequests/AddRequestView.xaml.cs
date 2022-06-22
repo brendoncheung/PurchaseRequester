@@ -48,7 +48,6 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests
         public void AddRequestView_Loaded(object sender, RoutedEventArgs e)
         {
             ViewModel = (AddRequestViewModel)DataContext;
-            MessageBox.Show(ViewModel.ToString());
         }
     }
 }

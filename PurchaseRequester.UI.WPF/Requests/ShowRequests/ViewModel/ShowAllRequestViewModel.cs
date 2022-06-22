@@ -3,6 +3,7 @@ using PurchaseRequester.UI.WPF.Common;
 using PurchaseRequester.UI.WPF.Repository.Requests;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +14,8 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel
     {
         public RequestRepository RequestRepository { get; }
 
-        private List<Request> _requests = new List<Request>();
-        public List<Request> Requests
+        private ObservableCollection<Request> _requests = new();
+        public ObservableCollection<Request> Requests
         {
             get => _requests;
             set
@@ -27,12 +28,16 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel
         public ShowAllRequestViewModel(RequestRepository requestRepository)
         {
             RequestRepository = requestRepository;
-            Requests = RequestRepository.GetRequests().ToList();
+            // Requests = RequestRepository.GetRequests().ToList();
         }
 
         public List<Request> GetAllRequest()
         {
-            _requests = RequestRepository.GetRequests().ToList();
+            foreach (Request r in RequestRepository.GetRequests())
+            {
+                Requests.Add(r);
+            }
+
             return RequestRepository.GetRequests().ToList();
         }
     }

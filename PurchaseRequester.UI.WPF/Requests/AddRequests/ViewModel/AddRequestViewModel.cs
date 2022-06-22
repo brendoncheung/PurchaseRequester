@@ -31,7 +31,7 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel
 
         public void AddRequest(Request request)
         {
-            requestRepository.AddRequest(request);
+            requestRepository.AddRequest(new Request { PartNo="123"});
         }
 
         public void Add(object? parameter)
