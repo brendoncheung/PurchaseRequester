@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using Microsoft.Extensions.DependencyInjection;
 using PurchaseRequester.Core.Database;
 using PurchaseRequester.Core.Requests.Commands;
 using PurchaseRequester.Core.Requests.Queries;
 using PurchaseRequester.Persistence.Requests;
 using PurchaseRequester.UI.WPF.Repository.Requests;
-using PurchaseRequester.UI.WPF.Requests.ViewModel;
-using PurchaseRequester.UI.WPF.Requests;
-using Microsoft.Extensions.DependencyInjection;
 using PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel;
 using PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel;
+using System;
+using System.Windows;
 
 namespace PurchaseRequester.UI.WPF
 {
@@ -48,7 +41,6 @@ namespace PurchaseRequester.UI.WPF
             service.AddSingleton<RequestRepository>();
 
             // ViewModel injection
-            service.AddSingleton<RequestListViewModel>();
             service.AddSingleton<MainWindowViewModel>();
             service.AddSingleton<AddRequestViewModel>();
             service.AddSingleton<ShowAllRequestViewModel>();

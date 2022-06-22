@@ -1,6 +1,5 @@
 ﻿using PurchaseRequester.UI.WPF.Common;
 using PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel;
-using PurchaseRequester.UI.WPF.Requests.ViewModel;
 using System.Windows;
 using System.Windows.Controls;
 

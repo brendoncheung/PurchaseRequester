@@ -37,7 +37,7 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel
         public AddRequestViewModel(RequestRepository requestRepository)
         {
             this.requestRepository = requestRepository;
-            AddCommand = new DelegateCommand(Add);
+            //AddCommand = new DelegateCommand(Add);
         }
 
         public void AddRequest()
@@ -45,9 +45,9 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel
             requestRepository.AddRequest(_request);
         }
 
-        public void Add(object? parameter)
-        {
+        //public void Add(object? parameter)
+        //{
 
-        }
+        //}
     }
 }
