@@ -18,6 +18,8 @@
                   >
            
             <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridCheckBoxColumn Header="Emergency" Binding="{Binding isEmergency}"/>
                 <DataGridTextColumn Header="Fruition Part" Binding="{Binding PartNo}"/>
                 <DataGridTextColumn Header="Model Part" Binding="{Binding ModelNo}"/>
                 <DataGridTextColumn Header="Used On" Binding="{Binding ModelNo}"/>

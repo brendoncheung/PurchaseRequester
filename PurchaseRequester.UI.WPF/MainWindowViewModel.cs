@@ -47,13 +47,4 @@ public class MainWindowViewModel : ViewModelBase
             RaisedPropertChanged(nameof(SelectedViewModel));
         }
     }
-
-
-
-
-
-    
-    
-
-
 }

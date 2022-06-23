@@ -51,7 +51,8 @@
         <TextBlock Text="Add Request" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>
 
         <CheckBox Margin="8" Grid.Row="1" 
-                  VerticalAlignment="Center">
+                  VerticalAlignment="Center"
+                  IsChecked="{Binding Request.isEmergency, Mode=TwoWay}">
             <TextBlock 
                 Text="Emergency Buy" Foreground="Red" FontWeight="Bold"/>
         </CheckBox>

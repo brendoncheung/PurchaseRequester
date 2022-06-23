@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Requests\ViewModel\**" />
+    <EmbeddedResource Remove="Requests\ViewModel\**" />
+    <None Remove="Requests\ViewModel\**" />
+    <Page Remove="Requests\ViewModel\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
   </ItemGroup>
 
@@ -15,10 +22,6 @@
     <ProjectReference Include="..\PurchaseRequester.Core\PurchaseRequester.Core.csproj" />
     <ProjectReference Include="..\PurchaseRequester.Domain\PurchaseRequester.Domain.csproj" />
     <ProjectReference Include="..\PurchaseRequester.Persistence\PurchaseRequester.Persistence.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Requests\ViewModel\" />
   </ItemGroup>
 
 </Project>

@@ -19,6 +19,7 @@ namespace PurchaseRequester.Domain.Requests
         public string RequestedTime;
         public Catagory catagory = Catagory.MISC;
         public RequestStatus Status = RequestStatus.PENDING;
+        public bool isEmergency { get; set; }
     }
 
     public enum RequestStatus
