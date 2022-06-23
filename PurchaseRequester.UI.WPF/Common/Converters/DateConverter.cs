@@ -12,7 +12,14 @@ namespace PurchaseRequester.UI.WPF.Common.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            if(value != null)
+            {
+                DateTime dt = (DateTime)value;
+                string date = dt.ToString("d/M/yyyy");
+                return date;
+            }
+
+            return string.Empty;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

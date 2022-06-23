@@ -21,6 +21,7 @@ namespace PurchaseRequester.UI.WPF
         {
             
             ViewModel.SelectViewModel = ViewModel.ShowRequestViewModel;
+            ViewModel.ShowRequestViewModel.GetAllRequest();
         }
 
         private void MyRequestButton_Clicked(object sender, RoutedEventArgs e)
@@ -34,6 +35,11 @@ namespace PurchaseRequester.UI.WPF
         }
 
         private void SavedRequestButton_Clicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void HistorytButton_Clicked(object sender, RoutedEventArgs e)
         {
 
         }

@@ -15,17 +15,18 @@
         <DataGrid Grid.Row="0"
                   ItemsSource="{Binding Requests}"
                   AutoGenerateColumns="False"
+                  CanUserAddRows="False"
                   >
            
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridCheckBoxColumn Header="Emergency" Binding="{Binding isEmergency}"/>
-                <DataGridTextColumn Header="Fruition Part" Binding="{Binding PartNo}"/>
-                <DataGridTextColumn Header="Model Part" Binding="{Binding ModelNo}"/>
-                <DataGridTextColumn Header="Used On" Binding="{Binding ModelNo}"/>
-                <DataGridTextColumn Header="Lead Time" Binding="{Binding LeadTime}"/>
-                <DataGridTextColumn Header="Created On" Binding="{Binding CreatedDate}"/>
-                <DataGridTextColumn Header="Comment" Binding="{Binding Description}" Width="500">
+                <DataGridCheckBoxColumn Header="Emergency" Binding="{Binding isEmergency, Mode=TwoWay}"/>
+                <DataGridTextColumn Header="Fruition Part" Binding="{Binding PartNo, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Model Part" Binding="{Binding ModelNo, Mode=TwoWay}"/>
+                <DataGridTextColumn Header="Used On" Binding="{Binding UsedOn, Mode=TwoWay}"/>
+                <DataGridTextColumn Header="Lead Time" Binding="{Binding LeadTime, Mode=TwoWay}"/>
+                <DataGridTextColumn Header="Created On" Binding="{Binding CreatedDate, Mode=TwoWay, StringFormat='yyyy-MM-dd'}"/>
+                <DataGridTextColumn Header="Comment" Binding="{Binding Description, Mode=TwoWay}" Width="500">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap"/>

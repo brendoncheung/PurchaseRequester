@@ -15,8 +15,8 @@ namespace PurchaseRequester.Domain.Requests
         public string Description { get; set; }
         public double Quantity { get; set; }
         public string LeadTime { get; set; }
-        public string CreatedDate = DateTime.Now.ToString();
-        public string RequestedTime;
+        public DateTime CreatedDate { get; set; }
+        public DateTime RequestedTime;
         public Catagory catagory = Catagory.MISC;
         public RequestStatus Status = RequestStatus.PENDING;
         public bool isEmergency { get; set; }

@@ -29,7 +29,7 @@
         </ControlTemplate>
     </UserControl.Resources>-->
     
-    <Grid ShowGridLines="True">
+    <Grid ShowGridLines="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>

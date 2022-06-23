@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PurchaseRequester.Domain.Requests;
+﻿using PurchaseRequester.Domain.Requests;
 using PurchaseRequester.UI.WPF.Common;
 using PurchaseRequester.UI.WPF.Repository.Requests;
 
@@ -28,6 +23,7 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel
             }
             set
             {
+                _request = value;
                 RaisedPropertChanged();
             }
         }
@@ -40,10 +36,15 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel
             //AddCommand = new DelegateCommand(Add);
         }
 
+        public void Clear()
+        {
+            Request = new Request();
+        }
+
         public void AddRequest()
         {
             requestRepository.AddRequest(_request);
-            _request = null;
+            Request = new Request();
         }
     }
 }

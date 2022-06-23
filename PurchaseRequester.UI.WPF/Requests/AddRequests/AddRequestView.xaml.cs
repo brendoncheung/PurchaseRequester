@@ -38,11 +38,12 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests
 
         private void SaveButton_Clicked(object sender, RoutedEventArgs e)
         {
+
         }
 
         private void CancelButton_Clicked(object sender, RoutedEventArgs e)
         {
-
+            ViewModel.Clear();
         }
 
         public void AddRequestView_Loaded(object sender, RoutedEventArgs e)

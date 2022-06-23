@@ -28,7 +28,6 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel
         public ShowAllRequestViewModel(RequestRepository requestRepository)
         {
             RequestRepository = requestRepository;
-            // Requests = RequestRepository.GetRequests().ToList();
         }
 
         public List<Request> GetAllRequest()
@@ -36,7 +35,9 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel
             Requests.Clear();
             foreach (Request r in RequestRepository.GetRequests())
             {
+                r.CreatedDate = DateTime.Now;
                 Requests.Add(r);
+                
             }
 
             RaisedPropertChanged(nameof(Requests));

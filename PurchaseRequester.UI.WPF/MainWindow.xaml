@@ -21,7 +21,7 @@
         </DataTemplate>
     </Window.Resources>
     
-    <Grid ShowGridLines="True">
+    <Grid ShowGridLines="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="16"/>
@@ -50,6 +50,7 @@
             <Button Content="My Requests" Click="MyRequestButton_Clicked" Margin="0 10 0 0" ></Button>
             <Button Content="Add Requests" Click="AddRequestButton_Clicked" Margin="0 10 0 0"></Button>
             <Button Content="Saved Requests" Click="SavedRequestButton_Clicked" Margin="0 10 0 0"></Button>
+            <Button Content="History" Click="HistorytButton_Clicked" Margin="0 10 0 0"></Button>
         </StackPanel>
         
         <!-- Main Window -->
