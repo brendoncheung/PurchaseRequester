@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PurchaseRequester.UI.WPF.Requests.ShowRequests"
+             xmlns:ext="clr-namespace:PurchaseRequester.UI.WPF.Common.MarkupExtensions"
+             xmlns:dom="clr-namespace:PurchaseRequester.Domain.Requests;assembly=PurchaseRequester.Domain"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -20,7 +22,8 @@
            
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridCheckBoxColumn Header="Emergency" Binding="{Binding isEmergency, Mode=TwoWay}"/>
+                <DataGridCheckBoxColumn Header="Emergency" Binding="{Binding isEmergency}"/>
+                <DataGridComboBoxColumn Header="Catagory" ItemsSource="{Binding Source={ext:EnumBindingSource {x:Type dom:RequestCatagory}}}" SelectedValueBinding="{Binding RequestCatagory}"/>
                 <DataGridTextColumn Header="Fruition Part" Binding="{Binding PartNo, Mode=TwoWay}" />
                 <DataGridTextColumn Header="Model Part" Binding="{Binding ModelNo, Mode=TwoWay}"/>
                 <DataGridTextColumn Header="Used On" Binding="{Binding UsedOn, Mode=TwoWay}"/>
@@ -33,8 +36,6 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-
-
             </DataGrid.Columns>
         </DataGrid>
 

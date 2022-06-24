@@ -67,6 +67,7 @@
 
                 <ComboBox HorizontalAlignment="Left"
                           SelectedIndex="0"
+                          SelectedValue="{Binding Request.RequestCatagory, Source={ext:EnumBindingSource {x:Type dom:RequestCatagory}}}"
                           ItemsSource="{Binding Source={ext:EnumBindingSource {x:Type dom:RequestCatagory}}}"/>
 
                 <Label Grid.Row="3" Content="FI Number: " Template="{StaticResource formRowLabel}"/>
