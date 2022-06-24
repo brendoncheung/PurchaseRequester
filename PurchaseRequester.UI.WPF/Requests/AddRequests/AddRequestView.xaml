@@ -31,10 +31,12 @@
         </ControlTemplate>
     </UserControl.Resources>-->
     
-    <Grid ShowGridLines="False">
+    <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -64,6 +66,7 @@
                 <Label Content="Catagory" Template="{StaticResource formRowLabel}"/>
 
                 <ComboBox HorizontalAlignment="Left"
+                          SelectedIndex="0"
                           ItemsSource="{Binding Source={ext:EnumBindingSource {x:Type dom:RequestCatagory}}}"/>
 
                 <Label Grid.Row="3" Content="FI Number: " Template="{StaticResource formRowLabel}"/>
@@ -110,5 +113,6 @@
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
+        
     </Grid>
 </UserControl>
