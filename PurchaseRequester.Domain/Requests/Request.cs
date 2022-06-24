@@ -17,22 +17,8 @@ namespace PurchaseRequester.Domain.Requests
         public string LeadTime { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime RequestedTime;
-        public Catagory catagory = Catagory.MISC;
+        public RequestCatagory catagory = RequestCatagory.MISC;
         public RequestStatus Status = RequestStatus.PENDING;
         public bool isEmergency { get; set; }
-    }
-
-    public enum RequestStatus
-    {
-        WORKING,
-        PENDING,
-        COMPLETED,
-    }
-
-    public enum Catagory
-    {
-        TOOLING,
-        MISC,
-        PASSTHOUGH,
     }
 }

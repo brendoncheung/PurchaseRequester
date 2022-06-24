@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PurchaseRequester.UI.WPF.Requests.AddRequests"
+             xmlns:ext="clr-namespace:PurchaseRequester.UI.WPF.Common.MarkupExtensions"
+             xmlns:dom="clr-namespace:PurchaseRequester.Domain.Requests;assembly=PurchaseRequester.Domain"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="White">
@@ -59,7 +61,10 @@
 
         <ScrollViewer Grid.Row="2" Grid.ColumnSpan="2">
             <StackPanel>
-                <ComboBox Width="50" HorizontalAlignment="Left"/>
+                <Label Content="Catagory" Template="{StaticResource formRowLabel}"/>
+
+                <ComboBox HorizontalAlignment="Left"
+                          ItemsSource="{Binding Source={ext:EnumBindingSource {x:Type dom:RequestCatagory}}}"/>
 
                 <Label Grid.Row="3" Content="FI Number: " Template="{StaticResource formRowLabel}"/>
                 <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Request.PartNo, Mode=TwoWay}"/>
