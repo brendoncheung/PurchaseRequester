@@ -27,12 +27,12 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests
         public AddRequestView()
         { 
             InitializeComponent();
-
             this.Loaded += AddRequestView_Loaded;
         }
 
         private void SubmitButton_Clicked(object sender, RoutedEventArgs e)         
         {
+            ViewModel.Request.Catagory = CatagoryComboBox.Text;
             ViewModel.AddRequest();
         }
 

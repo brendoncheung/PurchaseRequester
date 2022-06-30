@@ -65,10 +65,19 @@
             <StackPanel>
                 <Label Content="Catagory" Template="{StaticResource formRowLabel}"/>
 
-                <ComboBox HorizontalAlignment="Left"
-                          SelectedIndex="0"
-                          SelectedValue="{Binding Request.RequestCatagory, Source={ext:EnumBindingSource {x:Type dom:RequestCatagory}}}"
-                          ItemsSource="{Binding Source={ext:EnumBindingSource {x:Type dom:RequestCatagory}}}"/>
+                <ComboBox x:Name="CatagoryComboBox" 
+                    HorizontalAlignment="Left"
+                          SelectedIndex="0">
+
+                    <ComboBoxItem>MISC</ComboBoxItem>
+                    <ComboBoxItem>TOOLING</ComboBoxItem>
+                    <ComboBoxItem>FLOOR_SUPPLIES</ComboBoxItem>
+                    <ComboBoxItem>OFFICE_SUPPLIES</ComboBoxItem>
+                    <ComboBoxItem>ENGINEERING</ComboBoxItem>
+                    <ComboBoxItem>PRODUCTION</ComboBoxItem>
+                    <ComboBoxItem>PPAP</ComboBoxItem>
+
+                </ComboBox>
 
                 <Label Grid.Row="3" Content="FI Number: " Template="{StaticResource formRowLabel}"/>
                 <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Request.PartNo, Mode=TwoWay}"/>

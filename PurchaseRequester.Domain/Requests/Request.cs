@@ -15,10 +15,11 @@ namespace PurchaseRequester.Domain.Requests
         public string Description { get; set; }
         public double Quantity { get; set; }
         public string LeadTime { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get => DateTime.Now; set { }}
         public DateTime RequestedTime;
-        public RequestCatagory catagory = RequestCatagory.MISC;
-        public RequestStatus Status = RequestStatus.PENDING;
+        public string Catagory { get; set; }
+        public string Status = RequestStatus.PENDING;
+
         public bool isEmergency { get; set; }
     }
 }

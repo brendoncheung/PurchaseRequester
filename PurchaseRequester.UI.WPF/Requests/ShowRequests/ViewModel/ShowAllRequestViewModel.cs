@@ -35,7 +35,6 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel
             Requests.Clear();
             foreach (Request r in RequestRepository.GetRequests())
             {
-                r.CreatedDate = DateTime.Now;
                 Requests.Add(r);
                 
             }

@@ -40,6 +40,7 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests
         private void ShowAllRequestView_Loaded(object sender, RoutedEventArgs e)
         {
             ViewModel = (ShowAllRequestViewModel)DataContext;
+            
         }
     }
 }
