@@ -6,8 +6,21 @@
              xmlns:local="clr-namespace:PurchaseRequester.UI.WPF.Requests.ShowRequests"
              xmlns:ext="clr-namespace:PurchaseRequester.UI.WPF.Common.MarkupExtensions"
              xmlns:dom="clr-namespace:PurchaseRequester.Domain.Requests;assembly=PurchaseRequester.Domain"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="statusEnum" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="dom:RequestStatus"/>
+            </ObjectDataProvider.MethodParameters>
+            
+            
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -15,20 +28,27 @@
         </Grid.RowDefinitions>
 
         <DataGrid Grid.Row="0"
-                  ItemsSource="{Binding Requests}"
+                  x:Name="dataGrid"
                   AutoGenerateColumns="False"
-                  CanUserAddRows="False"
-                  >
-           
+                  CanUserAddRows="False">
+            <!--ItemsSource="{Binding Requests}"-->
+
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
+                <DataGridComboBoxColumn Header="Status" ItemsSource="{Binding Status, Source={StaticResource statusEnum}, Mode=TwoWay}"/>
                 <DataGridCheckBoxColumn Header="Emergency" Binding="{Binding isEmergency}"/>
                 <DataGridTextColumn Header="Catagory" Binding="{Binding Catagory, Mode=OneTime}"/>
                 <DataGridTextColumn Header="Fruition Part" Binding="{Binding PartNo, Mode=TwoWay}" />
                 <DataGridTextColumn Header="Model Part" Binding="{Binding ModelNo, Mode=TwoWay}"/>
                 <DataGridTextColumn Header="Used On" Binding="{Binding UsedOn, Mode=TwoWay}"/>
-                <DataGridTextColumn Header="Lead Time" Binding="{Binding LeadTime, Mode=TwoWay}"/>
+                <DataGridTemplateColumn Header="Lead Time">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding LeadTime, Mode=TwoWay}" BorderThickness="0" SelectedDateFormat="Short"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    
+                </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Created On" Binding="{Binding CreatedDate, StringFormat='yyyy-MM-dd'}"/>
                 <DataGridTextColumn Header="Comment" Binding="{Binding Description, Mode=TwoWay}" Width="500">
                     <DataGridTextColumn.ElementStyle>

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace PurchaseRequester.Domain.Requests
 {
-    public class RequestStatus
+    public enum RequestStatus
     {
-        public static string WORKING = "WORKING";
-        public static string PENDING = "PENDING";
-        public static string COMPLETED = "COMPLETED";
+        WORKING,
+        PENDING,
+        COMPLETED,
     }
 }

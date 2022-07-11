@@ -34,13 +34,18 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests
 
         private void Refresh_Clicked(object sender, RoutedEventArgs e)
         {
-            ViewModel.GetAllRequest();
+            LoadRequests();
         }
 
         private void ShowAllRequestView_Loaded(object sender, RoutedEventArgs e)
         {
             ViewModel = (ShowAllRequestViewModel)DataContext;
-            
+            LoadRequests();
+        }
+
+        private void LoadRequests()
+        {
+            dataGrid.ItemsSource = ViewModel.GetAllRequest();
         }
     }
 }
