@@ -29,6 +29,8 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests
         {
             InitializeComponent();
             this.Loaded += ShowAllRequestView_Loaded;
+
+            
         }
 
 

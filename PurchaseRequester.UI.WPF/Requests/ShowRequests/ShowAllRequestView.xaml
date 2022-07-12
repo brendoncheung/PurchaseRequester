@@ -30,12 +30,16 @@
         <DataGrid Grid.Row="0"
                   x:Name="dataGrid"
                   AutoGenerateColumns="False"
+                  ItemsSource="{Binding Requests}"
                   CanUserAddRows="False">
-            <!--ItemsSource="{Binding Requests}"-->
-
+            <!---->
+               
+            <!--Try to remove the columns and just have DataGrid
+            https://www.youtube.com/watch?v=UbnV2_O-ODc-->
+            
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridComboBoxColumn Header="Status" ItemsSource="{Binding Status, Source={StaticResource statusEnum}, Mode=TwoWay}"/>
+                <DataGridComboBoxColumn Header="Status" ItemsSource="{Binding Source={StaticResource statusEnum}, UpdateSourceTrigger=PropertyChanged}"/>
                 <DataGridCheckBoxColumn Header="Emergency" Binding="{Binding isEmergency}"/>
                 <DataGridTextColumn Header="Catagory" Binding="{Binding Catagory, Mode=OneTime}"/>
                 <DataGridTextColumn Header="Fruition Part" Binding="{Binding PartNo, Mode=TwoWay}" />
