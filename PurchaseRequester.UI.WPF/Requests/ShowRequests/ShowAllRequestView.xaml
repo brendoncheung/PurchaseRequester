@@ -34,12 +34,12 @@
                   CanUserAddRows="False">
             <!---->
                
-            <!--Try to remove the columns and just have DataGrid
-            https://www.youtube.com/watch?v=UbnV2_O-ODc-->
-            
+
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridComboBoxColumn Header="Status" ItemsSource="{Binding Source={StaticResource statusEnum}, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridComboBoxColumn Header="Status" 
+                                        SelectedValueBinding="{Binding Status, UpdateSourceTrigger=PropertyChanged}"
+                                        ItemsSource="{Binding Source={StaticResource statusEnum}}"/>
                 <DataGridCheckBoxColumn Header="Emergency" Binding="{Binding isEmergency}"/>
                 <DataGridTextColumn Header="Catagory" Binding="{Binding Catagory, Mode=OneTime}"/>
                 <DataGridTextColumn Header="Fruition Part" Binding="{Binding PartNo, Mode=TwoWay}" />

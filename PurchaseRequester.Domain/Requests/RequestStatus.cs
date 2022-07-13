@@ -8,7 +8,7 @@ namespace PurchaseRequester.Domain.Requests
 {
     public enum RequestStatus
     {
-        WORKING,
+        NEW,
         PENDING,
         COMPLETED,
     }

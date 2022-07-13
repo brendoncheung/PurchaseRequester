@@ -30,13 +30,25 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel
             RequestRepository = requestRepository;
         }
 
+        public List<Request> GetAllRequestByStatus(params RequestStatus[] status)
+        {
+            return GetAllRequest((x) => status.Contains(x.Status));
+        }
+
         public List<Request> GetAllRequest()
         {
+            return GetAllRequest((x) => true);
+        }
+
+        private List<Request> GetAllRequest(Func<Request, bool> filter)
+        {
             Requests.Clear();
-            foreach (Request r in RequestRepository.GetRequests())
+            foreach(Request r in RequestRepository.GetRequests())
             {
-                Requests.Add(r);
-                
+                if(filter(r))
+                {
+                    Requests.Add(r);
+                }
             }
 
             RaisedPropertChanged(nameof(Requests));

@@ -29,25 +29,17 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests
         {
             InitializeComponent();
             this.Loaded += ShowAllRequestView_Loaded;
-
-            
         }
 
 
         private void Refresh_Clicked(object sender, RoutedEventArgs e)
         {
-            LoadRequests();
+            ViewModel.GetAllRequestByStatus(RequestStatus.PENDING, RequestStatus.NEW);
         }
 
         private void ShowAllRequestView_Loaded(object sender, RoutedEventArgs e)
         {
             ViewModel = (ShowAllRequestViewModel)DataContext;
-            LoadRequests();
-        }
-
-        private void LoadRequests()
-        {
-            dataGrid.ItemsSource = ViewModel.GetAllRequest();
         }
     }
 }
