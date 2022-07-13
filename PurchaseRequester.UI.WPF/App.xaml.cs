@@ -5,6 +5,7 @@ using PurchaseRequester.Core.Requests.Queries;
 using PurchaseRequester.Persistence.Requests;
 using PurchaseRequester.UI.WPF.Repository.Requests;
 using PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel;
+using PurchaseRequester.UI.WPF.Requests.HistoryRequests.ViewModel;
 using PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel;
 using System;
 using System.Windows;
@@ -44,10 +45,9 @@ namespace PurchaseRequester.UI.WPF
             service.AddSingleton<MainWindowViewModel>();
             service.AddSingleton<AddRequestViewModel>();
             service.AddSingleton<ShowAllRequestViewModel>();
-
+            service.AddSingleton<HistoryRequestViewModel>();
 
             service.AddTransient<MainWindow>();
-
         }
 
         protected override void OnStartup(StartupEventArgs e)

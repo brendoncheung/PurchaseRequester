@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PurchaseRequester.UI.WPF.Common;
 using PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel;
+using PurchaseRequester.UI.WPF.Requests.HistoryRequests.ViewModel;
 using PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel;
 
 namespace PurchaseRequester.UI.WPF;
@@ -13,6 +14,7 @@ public class MainWindowViewModel : ViewModelBase
 {
     public ShowAllRequestViewModel ShowRequestViewModel { get; }
     public AddRequestViewModel AddRequestViewModel { get; }
+    public HistoryRequestViewModel HistoryRequestViewModel { get; }
 
     private ViewModelBase? _selectedViewModel;
 
@@ -24,9 +26,11 @@ public class MainWindowViewModel : ViewModelBase
     }
 
     public MainWindowViewModel(
+        HistoryRequestViewModel historyRequestViewModel,
         ShowAllRequestViewModel showRequestViewModel, 
         AddRequestViewModel addRequestViewModel)
     {
+        HistoryRequestViewModel = historyRequestViewModel;
         ShowRequestViewModel = showRequestViewModel;
         AddRequestViewModel = addRequestViewModel;
 

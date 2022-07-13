@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PurchaseRequester.Domain.Users;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,10 +20,11 @@ namespace PurchaseRequester.Domain.Requests
         public string Description { get; set; }
         public double Quantity { get; set; }
         public string LeadTime { get; set; }
+        public User Issuer { get; set; }
         public DateTime CreatedDate { get => createdTime; set => createdTime = value; }
         public DateTime RequestedTime;
 
-        public string Catagory { get; set; }
+        public RequestCatagory Catagory { get; set; }
         public RequestStatus Status { get => status; set => status = value; }
 
         public bool isEmergency { get; set; }

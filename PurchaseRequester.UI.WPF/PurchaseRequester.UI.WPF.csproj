@@ -24,8 +24,4 @@
     <ProjectReference Include="..\PurchaseRequester.Persistence\PurchaseRequester.Persistence.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Requests\HistoryRequests\ViewModel\" />
-  </ItemGroup>
-
 </Project>

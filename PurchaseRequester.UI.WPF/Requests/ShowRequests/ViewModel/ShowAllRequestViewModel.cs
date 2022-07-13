@@ -30,14 +30,26 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel
             RequestRepository = requestRepository;
         }
 
-        public List<Request> GetAllRequestByStatus(params RequestStatus[] status)
+        public void ShowAllRequestByStatus(params RequestStatus[] status)
         {
-            return GetAllRequest((x) => status.Contains(x.Status));
+            Requests.Clear();
+            foreach (Request r in RequestRepository.GetRequestsByStatus(status))
+            {
+                Requests.Add(r);
+            }
+
+            RaisedPropertChanged(nameof(Requests));
         }
 
-        public List<Request> GetAllRequest()
+        public void ShowAllRequest()
         {
-            return GetAllRequest((x) => true);
+            Requests.Clear();
+            foreach (Request r in RequestRepository.GetRequests())
+            {
+                Requests.Add(r);
+            }
+
+            RaisedPropertChanged(nameof(Requests));
         }
 
         private List<Request> GetAllRequest(Func<Request, bool> filter)
@@ -51,7 +63,7 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel
                 }
             }
 
-            RaisedPropertChanged(nameof(Requests));
+            
 
             return RequestRepository.GetRequests().ToList();
         }

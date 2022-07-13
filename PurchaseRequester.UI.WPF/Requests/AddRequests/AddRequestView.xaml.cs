@@ -32,7 +32,7 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests
 
         private void SubmitButton_Clicked(object sender, RoutedEventArgs e)         
         {
-            ViewModel.Request.Catagory = CatagoryComboBox.Text;
+            ViewModel.Request.Catagory = (RequestCatagory)CatagoryComboBox.SelectedValue;
             ViewModel.AddRequest();
         }
 

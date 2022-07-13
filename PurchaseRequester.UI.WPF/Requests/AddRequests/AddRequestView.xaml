@@ -15,22 +15,15 @@
         <ControlTemplate x:Key="formRowLabel" TargetType="Label">
             <TextBlock Text="{TemplateBinding Content}" FontSize="12" FontWeight="Bold"/>
         </ControlTemplate>
-        
+
+        <ObjectDataProvider x:Key="catagoryEnum" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="dom:RequestCatagory"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
     </UserControl.Resources>
 
-    <!--<UserControl.Resources>
-        <ControlTemplate x:Key="formRow" TargetType="ContentControl">
-            <StackPanel Margin="0 0 0 16">
-                <TextBlock 
-                    Text="{TemplateBinding Content}"
-                    DockPanel.Dock="Left" 
-                           Margin="0 0 0 0"
-                           FontWeight="Bold"/>
-                <TextBox Margin="0 8 0 0"/>
-            </StackPanel>
-        </ControlTemplate>
-    </UserControl.Resources>-->
-    
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -64,20 +57,12 @@
         <ScrollViewer Grid.Row="2" Grid.ColumnSpan="2">
             <StackPanel>
                 <Label Content="Catagory" Template="{StaticResource formRowLabel}"/>
-
                 <ComboBox x:Name="CatagoryComboBox" 
                     HorizontalAlignment="Left"
-                          SelectedIndex="0">
+                          SelectedIndex="0" 
+                          ItemsSource="{Binding Source={StaticResource catagoryEnum}}"/>
 
-                    <ComboBoxItem>MISC</ComboBoxItem>
-                    <ComboBoxItem>TOOLING</ComboBoxItem>
-                    <ComboBoxItem>FLOOR_SUPPLIES</ComboBoxItem>
-                    <ComboBoxItem>OFFICE_SUPPLIES</ComboBoxItem>
-                    <ComboBoxItem>ENGINEERING</ComboBoxItem>
-                    <ComboBoxItem>PRODUCTION</ComboBoxItem>
-                    <ComboBoxItem>PPAP</ComboBoxItem>
 
-                </ComboBox>
 
                 <Label Grid.Row="3" Content="FI Number: " Template="{StaticResource formRowLabel}"/>
                 <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Request.PartNo, Mode=TwoWay}"/>

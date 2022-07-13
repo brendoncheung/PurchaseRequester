@@ -6,81 +6,21 @@
              xmlns:local="clr-namespace:PurchaseRequester.UI.WPF.Requests.ShowRequests"
              xmlns:ext="clr-namespace:PurchaseRequester.UI.WPF.Common.MarkupExtensions"
              xmlns:dom="clr-namespace:PurchaseRequester.Domain.Requests;assembly=PurchaseRequester.Domain"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+             xmlns:common="clr-namespace:PurchaseRequester.UI.WPF.Requests.Common"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <UserControl.Resources>
-        <ObjectDataProvider x:Key="statusEnum" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
-
-            <ObjectDataProvider.MethodParameters>
-                <x:Type TypeName="dom:RequestStatus"/>
-            </ObjectDataProvider.MethodParameters>
-            
-            
-        </ObjectDataProvider>
-    </UserControl.Resources>
-    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <DataGrid Grid.Row="0"
-                  x:Name="dataGrid"
-                  AutoGenerateColumns="False"
-                  ItemsSource="{Binding Requests}"
-                  CanUserAddRows="False">
-            <!---->
-               
-
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridComboBoxColumn Header="Status" 
-                                        SelectedValueBinding="{Binding Status, UpdateSourceTrigger=PropertyChanged}"
-                                        ItemsSource="{Binding Source={StaticResource statusEnum}}"/>
-                <DataGridCheckBoxColumn Header="Emergency" Binding="{Binding isEmergency}"/>
-                <DataGridTextColumn Header="Catagory" Binding="{Binding Catagory, Mode=OneTime}"/>
-                <DataGridTextColumn Header="Fruition Part" Binding="{Binding PartNo, Mode=TwoWay}" />
-                <DataGridTextColumn Header="Model Part" Binding="{Binding ModelNo, Mode=TwoWay}"/>
-                <DataGridTextColumn Header="Used On" Binding="{Binding UsedOn, Mode=TwoWay}"/>
-                <DataGridTemplateColumn Header="Lead Time">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <DatePicker SelectedDate="{Binding LeadTime, Mode=TwoWay}" BorderThickness="0" SelectedDateFormat="Short"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                    
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Created On" Binding="{Binding CreatedDate, StringFormat='yyyy-MM-dd'}"/>
-                <DataGridTextColumn Header="Comment" Binding="{Binding Description, Mode=TwoWay}" Width="500">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="TextWrapping" Value="Wrap"/>
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+        <common:RequestDataGrid Requests="{Binding Requests}"/>
 
         <StackPanel Grid.Row="1">
             <Button Content="Refresh" Click="Refresh_Clicked"/>
         </StackPanel>
     </Grid>
 </UserControl>
-
-
-
-
-<!--public int Id { get; set; }
-        public string PartNo { get; set; }
-        public string ModelNo { get; set; }
-        public string UsedOn { get; set; }
-        public string Description { get; set; }
-        public double Quantity { get; set; }
-        public string LeadTime { get; set; }
-        public string CreatedDate = DateTime.Now.ToString();
-        public string RequestedTime;
-        public Catagory catagory = Catagory.MISC;
-        public RequestStatus Status = RequestStatus.PENDING;-->

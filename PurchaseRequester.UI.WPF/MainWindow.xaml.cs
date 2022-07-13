@@ -31,7 +31,7 @@ namespace PurchaseRequester.UI.WPF
 
         private void HistorytButton_Clicked(object sender, RoutedEventArgs e)
         {
-
+            ViewModel.SelectedViewModel = ViewModel.HistoryRequestViewModel;
         }
     }
 }

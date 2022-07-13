@@ -6,21 +6,18 @@ using System.Threading.Tasks;
 
 namespace PurchaseRequester.Domain.Users
 {
-    public class User
+    public enum User
     {
-        public int Id { get; set; }
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
-        public string Email { get; set; }
-    }
-
-    public enum Roles
-    {
-        HUMANRESOURCE,
-        ENGINEERING,
-        PURCHASING,
-        PRODUCTION,
-        QUALITY,
-        OPERATION,
+        BRENDON_CHEUNG,
+        RANDALL_MAYBERRY,
+        RYAN_CYBULSKI,
+        DANNI_BRUBAKER,
+        KIMBERLY_CEPEDA,
+        CINDY_BICE,
+        LISA_LEROY,
+        MING_CHEUNG,
+        PAUL_DWYER,
+        RYAN_GODLEY,
+        JEFF_CYBULSKI,
     }
 }

@@ -25,6 +25,12 @@ namespace PurchaseRequester.UI.WPF.Repository.Requests
             return getAllRequest.Execute().ToList();
         }
 
+        public List<Request> GetRequestsByStatus(params RequestStatus[] status)
+        {
+            return getAllRequest.Execute().Where((x) => status.Contains(x.Status)).ToList();
+        }
+
+
         public void AddRequest(Request request)
         {
             addRequest.Execute(request);

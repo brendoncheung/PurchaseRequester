@@ -31,15 +31,15 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests
             this.Loaded += ShowAllRequestView_Loaded;
         }
 
-
         private void Refresh_Clicked(object sender, RoutedEventArgs e)
         {
-            ViewModel.GetAllRequestByStatus(RequestStatus.PENDING, RequestStatus.NEW);
+            ViewModel.ShowAllRequestByStatus(RequestStatus.PENDING, RequestStatus.NEW);
         }
 
         private void ShowAllRequestView_Loaded(object sender, RoutedEventArgs e)
         {
             ViewModel = (ShowAllRequestViewModel)DataContext;
+            ViewModel.ShowAllRequestByStatus(RequestStatus.PENDING, RequestStatus.NEW);
         }
     }
 }

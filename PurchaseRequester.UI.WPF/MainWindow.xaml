@@ -7,6 +7,8 @@
         xmlns:showAllRequestViewModel="clr-namespace:PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel"
         xmlns:addrequests="clr-namespace:PurchaseRequester.UI.WPF.Requests.AddRequests"
         xmlns:addRequestViewModel="clr-namespace:PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel"
+        xmlns:historyrequests="clr-namespace:PurchaseRequester.UI.WPF.Requests.HistoryRequests"
+        xmlns:historyrequestViewModel="clr-namespace:PurchaseRequester.UI.WPF.Requests.HistoryRequests.ViewModel"
         x:Class="PurchaseRequester.UI.WPF.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" FontSize="18">
@@ -18,6 +20,10 @@
         
         <DataTemplate DataType="{x:Type addRequestViewModel:AddRequestViewModel}">
             <addrequests:AddRequestView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type historyrequestViewModel:HistoryRequestViewModel}">
+            <historyrequests:HistoryRequestView/>
         </DataTemplate>
     </Window.Resources>
     

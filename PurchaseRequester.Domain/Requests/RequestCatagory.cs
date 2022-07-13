@@ -1,16 +1,14 @@
 ﻿namespace PurchaseRequester.Domain.Requests
 {
-    public class RequestCatagory
+    public enum RequestCatagory
     {
 
-        public static string MISC = "MISC";
-        public static string TOOLING = "TOOLING";
-        public static string FLOOR_SUPPLIES = "FLOOR_SUPPLIES";
-        public static string OFFICER_SUPPLIES = "OFFICER_SUPPLIES";
-        public static string ENGINEERING = "ENGINEERING";
-        public static string PRODUCTION = "PRODUCTION";
-        public static string PPAP = "PPAP";
-
-        
+        MISC,
+        TOOLING,
+        FLOOR_SUPPLIES,
+        OFFICE_SUPPLIES,
+        ENGINEERING,
+        PRODUCTION,
+        PPAP,
     }
 }
