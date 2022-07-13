@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:PurchaseRequester.UI.WPF.Requests.AddRequests"
              xmlns:ext="clr-namespace:PurchaseRequester.UI.WPF.Common.MarkupExtensions"
              xmlns:dom="clr-namespace:PurchaseRequester.Domain.Requests;assembly=PurchaseRequester.Domain"
+             xmlns:usr="clr-namespace:PurchaseRequester.Domain.Users;assembly=PurchaseRequester.Domain"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="White">
@@ -22,9 +23,15 @@
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
 
+        <ObjectDataProvider x:Key="UserEnum" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="usr:User"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
     </UserControl.Resources>
 
-    <Grid ShowGridLines="True">
+    <Grid ShowGridLines="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
@@ -33,6 +40,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -61,23 +69,26 @@
                     HorizontalAlignment="Left"
                           SelectedIndex="0" 
                           ItemsSource="{Binding Source={StaticResource catagoryEnum}}"/>
+                <Label Content="Issuer" Template="{StaticResource formRowLabel}"/>
+                <ComboBox Grid.Row="3"
+                    HorizontalAlignment="Left"
+                    SelectedIndex="0" 
+                    ItemsSource="{Binding Source={StaticResource UserEnum}}"/>
 
+                <Label Grid.Row="4" Content="FI Number: " Template="{StaticResource formRowLabel}"/>
+                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Request.PartNo, Mode=TwoWay}"/>
 
+                <Label Grid.Row="5" Content="Model Number: " Template="{StaticResource formRowLabel}"/>
+                <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Request.ModelNo, Mode=TwoWay}"/>
 
-                <Label Grid.Row="3" Content="FI Number: " Template="{StaticResource formRowLabel}"/>
-                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Request.PartNo, Mode=TwoWay}"/>
+                <Label Grid.Row="6" Content="Used In: " Template="{StaticResource formRowLabel}"/>
+                <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Request.UsedOn, Mode=TwoWay}"/>
 
-                <Label Grid.Row="4" Content="Model Number: " Template="{StaticResource formRowLabel}"/>
-                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Request.ModelNo, Mode=TwoWay}"/>
+                <Label Grid.Row="7" Content="Quantity: " Template="{StaticResource formRowLabel}"/>
+                <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Request.Quantity, Mode=TwoWay}"/>
 
-                <Label Grid.Row="5" Content="Used In: " Template="{StaticResource formRowLabel}"/>
-                <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Request.UsedOn, Mode=TwoWay}"/>
-
-                <Label Grid.Row="6" Content="Quantity: " Template="{StaticResource formRowLabel}"/>
-                <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Request.Quantity, Mode=TwoWay}"/>
-
-                <Label Grid.Row="7" Content="Description: " Template="{StaticResource formRowLabel}"/>
-                <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Request.Description, Mode=TwoWay}"/>
+                <Label Grid.Row="8" Content="Description: " Template="{StaticResource formRowLabel}"/>
+                <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding Request.Description, Mode=TwoWay}"/>
 
 
                 <!--public int Id { get; set; }

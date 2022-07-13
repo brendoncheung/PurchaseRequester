@@ -9,15 +9,15 @@ namespace PurchaseRequester.Domain.Users
     public enum User
     {
         BRENDON_CHEUNG,
-        RANDALL_MAYBERRY,
-        RYAN_CYBULSKI,
-        DANNI_BRUBAKER,
-        KIMBERLY_CEPEDA,
         CINDY_BICE,
+        DANNI_BRUBAKER,
+        JEFF_CYBULSKI,
+        KIMBERLY_CEPEDA,
         LISA_LEROY,
+        RANDALL_MAYBERRY,
         MING_CHEUNG,
         PAUL_DWYER,
         RYAN_GODLEY,
-        JEFF_CYBULSKI,
+        RYAN_CYBULSKI,
     }
 }

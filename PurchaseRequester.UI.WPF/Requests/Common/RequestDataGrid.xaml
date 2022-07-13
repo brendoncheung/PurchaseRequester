@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PurchaseRequester.UI.WPF.Requests.Common"
              xmlns:dom="clr-namespace:PurchaseRequester.Domain.Requests;assembly=PurchaseRequester.Domain"
+             xmlns:usr="clr-namespace:PurchaseRequester.Domain.Users;assembly=PurchaseRequester.Domain"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              x:Name="root"
@@ -23,6 +24,12 @@
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
 
+        <ObjectDataProvider x:Key="userEnum" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="usr:User"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
     </UserControl.Resources>
 
     <DataGrid Grid.Row="0"
@@ -32,6 +39,9 @@
                   CanUserAddRows="False">
         <DataGrid.Columns>
             <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+            <DataGridComboBoxColumn Header="Issuer" 
+                                        SelectedValueBinding="{Binding Issuer, UpdateSourceTrigger=PropertyChanged}"
+                                        ItemsSource="{Binding Source={StaticResource userEnum}}"/>
             <DataGridComboBoxColumn Header="Status" 
                                         SelectedValueBinding="{Binding Status, UpdateSourceTrigger=PropertyChanged}"
                                         ItemsSource="{Binding Source={StaticResource statusEnum}}"/>
