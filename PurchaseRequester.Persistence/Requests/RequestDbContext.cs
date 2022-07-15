@@ -9,12 +9,6 @@ namespace PurchaseRequester.Persistence.Requests
     {
         public DbSet<Request> Requests { get; set; }
 
-        public void AddRequest(Request request)
-        {
-            Requests.Add(request);
-            this.SaveChanges();
-        }
-
         public RequestDbContext()
         {
             //this.Database.EnsureDeleted();
@@ -36,6 +30,13 @@ namespace PurchaseRequester.Persistence.Requests
 
             base.OnConfiguring(optionsBuilder);
         }
+
+        public void AddRequest(Request request)
+        {
+            Requests.Add(request);
+            this.SaveChanges();
+        }
+
 
         public void RemoveRequest(Request request)
         {
