@@ -33,6 +33,7 @@ namespace PurchaseRequester.UI.WPF
             // Services
             service.AddTransient<IAddRequest, AddRequest>();
             service.AddTransient<IGetAllRequestList, GetAllRequestList>();
+            service.AddTransient<IRemoveRequest, RemoveRequest>();
 
             // Database
             service.AddSingleton<IDatabaseService, RequestDbContext>();

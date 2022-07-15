@@ -8,6 +8,7 @@
              xmlns:dom="clr-namespace:PurchaseRequester.Domain.Requests;assembly=PurchaseRequester.Domain"
              xmlns:usr="clr-namespace:PurchaseRequester.Domain.Users;assembly=PurchaseRequester.Domain"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="White">
 
@@ -28,6 +29,8 @@
                 <x:Type TypeName="usr:User"/>
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
+
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
 
     </UserControl.Resources>
 
@@ -53,7 +56,11 @@
 
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Add Request" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Add Request" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>
+            <fa:ImageAwesome Icon="Refresh" Spin="True" Height="20" Width="20" Margin="20 0 0 0" 
+                             Visibility="{Binding Visibility, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        </StackPanel>
 
         <CheckBox Margin="8" Grid.Row="1" 
                   VerticalAlignment="Center"
@@ -90,28 +97,6 @@
 
                 <Label Grid.Row="8" Content="Description: " Template="{StaticResource formRowLabel}"/>
                 <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding Request.Description, Mode=TwoWay}"/>
-
-
-                <!--public int Id { get; set; }
-        public string PartNo { get; set; }
-        public string ModelNo { get; set; }
-        public string UsedOn { get; set; }
-        public string Description { get; set; }
-        public double Quantity { get; set; }
-        public string LeadTime { get; set; }
-        public string CreatedDate = DateTime.Now.ToString();
-        public string RequestedTime;
-        public Catagory catagory = Catagory.MISC;
-        public RequestStatus Status = RequestStatus.PENDING;-->
-
-
-                <!--<ContentControl x:Name="FITextBox" Content="FI Number: " Template="{StaticResource formRow}"/>
-                <ContentControl x:Name="ModelTextBox" Content="Model Number: " Template="{StaticResource formRow}"/>
-                <ContentControl x:Name="UsedInTextBox" Content="Used In: " Template="{StaticResource formRow}"/>
-                <ContentControl x:Name="CostTextBox" Content="Cost: " Template="{StaticResource formRow}"/>
-                <ContentControl x:Name="QuanitytBox" Content="Quantity: " Template="{StaticResource formRow}"/>
-                <ContentControl x:Name="LinkTextBox" Content="Link: " Template="{StaticResource formRow}"/>
-                <ContentControl x:Name="DescriptionTextBox" Content="Descriptions: " Template="{StaticResource formRow}"/>-->
 
                 <StackPanel>
                     <Button Content="Submit" Click="SubmitButton_Clicked"/>

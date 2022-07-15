@@ -17,10 +17,13 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <common:RequestDataGrid Requests="{Binding Requests}"/>
+        <common:RequestDataGrid 
+            x:Name="RequestGrid"
+            Requests="{Binding Requests}"/>
 
         <StackPanel Grid.Row="1">
             <Button Content="Refresh" Click="Refresh_Clicked"/>
+            <Button Content="Remove" Click="Remove_Clicked"/>
         </StackPanel>
     </Grid>
 </UserControl>

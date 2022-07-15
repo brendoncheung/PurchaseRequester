@@ -13,11 +13,16 @@ namespace PurchaseRequester.UI.WPF.Repository.Requests
     {
         private readonly IGetAllRequestList getAllRequest;
         private readonly IAddRequest addRequest;
+        private readonly IRemoveRequest removeRequest;
 
-        public RequestRepository(IGetAllRequestList getAllRequest, IAddRequest addRequest)
+        public RequestRepository(
+            IGetAllRequestList getAllRequest, 
+            IAddRequest addRequest, 
+            IRemoveRequest removeRequest)
         {
             this.getAllRequest = getAllRequest;
             this.addRequest = addRequest;
+            this.removeRequest = removeRequest;
         }
 
         public List<Request> GetRequests()
@@ -30,6 +35,11 @@ namespace PurchaseRequester.UI.WPF.Repository.Requests
             return getAllRequest.Execute().Where((x) => status.Contains(x.Status)).ToList();
         }
 
+        public Request RemoveRequest(Request request)
+        {
+            removeRequest.Execute(request);
+            return request;
+        }
 
         public void AddRequest(Request request)
         {

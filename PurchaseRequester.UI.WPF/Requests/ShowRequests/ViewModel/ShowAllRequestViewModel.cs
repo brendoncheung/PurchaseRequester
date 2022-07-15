@@ -52,6 +52,11 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel
             RaisedPropertChanged(nameof(Requests));
         }
 
+        public Request RemoveRequest(Request request)
+        {
+            return RequestRepository.RemoveRequest(request);
+        }
+
         private List<Request> GetAllRequest(Func<Request, bool> filter)
         {
             Requests.Clear();
@@ -62,9 +67,6 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel
                     Requests.Add(r);
                 }
             }
-
-            
-
             return RequestRepository.GetRequests().ToList();
         }
     }

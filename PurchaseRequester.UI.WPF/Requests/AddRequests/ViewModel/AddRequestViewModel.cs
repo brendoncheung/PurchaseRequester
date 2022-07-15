@@ -1,39 +1,49 @@
 ﻿using PurchaseRequester.Domain.Requests;
 using PurchaseRequester.UI.WPF.Common;
 using PurchaseRequester.UI.WPF.Repository.Requests;
+using System.Windows;
 
 namespace PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel
 {
     public class AddRequestViewModel : ViewModelBase
     {
         private readonly RequestRepository requestRepository;
+        private Request request;
+        private bool visibility;
 
-        private Request _request;
+        public AddRequestViewModel(RequestRepository requestRepository)
+        {
+            this.requestRepository = requestRepository;
+            visibility = true; 
+        }
+
+        public bool Visibility
+        {
+            get => visibility; 
+            set
+            {
+                visibility = value;
+                RaisedPropertChanged();
+            }
+        }
 
         public Request Request
         {
             get
             {
-                if(_request is null)
+                if(request is null)
                 {
-                    _request = new Request();
+                    request = new Request();
                 }
-                return _request;
- 
+                return request;
             }
             set
             {
-                _request = value;
+                showLoad();
+                request = value;
                 RaisedPropertChanged();
+                hideLoad();
             }
-        }
-
-        public DelegateCommand AddCommand { get; }
-
-        public AddRequestViewModel(RequestRepository requestRepository)
-        {
-            this.requestRepository = requestRepository;
-            //AddCommand = new DelegateCommand(Add);
         }
 
         public void Clear()
@@ -43,8 +53,18 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel
 
         public void AddRequest()
         {
-            requestRepository.AddRequest(_request);
+            requestRepository.AddRequest(request);
             Request = new Request();
+        }
+
+        private void showLoad()
+        {
+            visibility = true;
+        }
+
+        private void hideLoad()
+        {
+            visibility = false;
         }
     }
 }

@@ -31,15 +31,29 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests
             this.Loaded += ShowAllRequestView_Loaded;
         }
 
-        private void Refresh_Clicked(object sender, RoutedEventArgs e)
+        public void ShowRequests()
         {
             ViewModel.ShowAllRequestByStatus(RequestStatus.PENDING, RequestStatus.NEW);
+        }
+
+        private void Refresh_Clicked(object sender, RoutedEventArgs e)
+        {
+            ShowRequests();
         }
 
         private void ShowAllRequestView_Loaded(object sender, RoutedEventArgs e)
         {
             ViewModel = (ShowAllRequestViewModel)DataContext;
-            ViewModel.ShowAllRequestByStatus(RequestStatus.PENDING, RequestStatus.NEW);
+            ShowRequests();
+        }
+
+        private void Remove_Clicked(object sender, RoutedEventArgs e)
+        {
+            var selectedRequest = RequestGrid.dataGrid.SelectedItem as Request;
+
+            ViewModel.RemoveRequest(selectedRequest);
+            ShowRequests();
+    
         }
     }
 }

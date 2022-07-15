@@ -22,7 +22,6 @@ namespace PurchaseRequester.UI.WPF.Requests.Common
     /// </summary>
     public partial class RequestDataGrid : UserControl
     {
-
         public ObservableCollection<Request> Requests
         {
             get { return (ObservableCollection<Request>)GetValue(RequestsProperty); }
@@ -32,7 +31,6 @@ namespace PurchaseRequester.UI.WPF.Requests.Common
         // Using a DependencyProperty as the backing store for Requests.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty RequestsProperty =
             DependencyProperty.Register("Requests", typeof(ObservableCollection<Request>), typeof(RequestDataGrid));
-
 
         public RequestDataGrid()
         {
