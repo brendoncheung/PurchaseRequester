@@ -30,7 +30,6 @@ namespace PurchaseRequester.UI.WPF
 
         private void ConfigureServices(ServiceCollection service)
         {
-
             // Services
             service.AddTransient<IAddRequest, AddRequest>();
             service.AddTransient<IGetAllRequestList, GetAllRequestList>();

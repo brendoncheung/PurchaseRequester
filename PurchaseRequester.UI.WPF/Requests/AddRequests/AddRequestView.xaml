@@ -71,6 +71,7 @@
                           ItemsSource="{Binding Source={StaticResource catagoryEnum}}"/>
                 <Label Content="Issuer" Template="{StaticResource formRowLabel}"/>
                 <ComboBox Grid.Row="3"
+                          x:Name="UserComboBox"
                     HorizontalAlignment="Left"
                     SelectedIndex="0" 
                     ItemsSource="{Binding Source={StaticResource UserEnum}}"/>

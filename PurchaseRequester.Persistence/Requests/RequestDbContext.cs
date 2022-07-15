@@ -17,7 +17,7 @@ namespace PurchaseRequester.Persistence.Requests
 
         public RequestDbContext()
         {
-            this.Database.EnsureDeleted();
+            //this.Database.EnsureDeleted();
             this.Database.EnsureCreated();
         }
 
@@ -29,7 +29,7 @@ namespace PurchaseRequester.Persistence.Requests
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite(
-                "Data Source=..\\testing.db")
+                "Data Source=..\\database.db")
                 .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information)
                 .EnableSensitiveDataLogging()
                 ;

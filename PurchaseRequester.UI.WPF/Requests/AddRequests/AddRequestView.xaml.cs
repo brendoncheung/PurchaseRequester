@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PurchaseRequester.Domain.Requests;
+using PurchaseRequester.Domain.Users;
 using PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel;
 
 namespace PurchaseRequester.UI.WPF.Requests.AddRequests
@@ -33,6 +34,7 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests
         private void SubmitButton_Clicked(object sender, RoutedEventArgs e)         
         {
             ViewModel.Request.Catagory = (RequestCatagory)CatagoryComboBox.SelectedValue;
+            ViewModel.Request.Issuer = (User)UserComboBox.SelectedValue;
             ViewModel.AddRequest();
         }
 
