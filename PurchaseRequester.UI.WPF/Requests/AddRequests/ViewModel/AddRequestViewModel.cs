@@ -48,13 +48,13 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel
 
         public void Clear()
         {
-            Request = new Request();
+            ClearForm();
         }
 
         public void AddRequest()
         {
             requestRepository.AddRequest(request);
-            Request = new Request();
+            ClearForm();
         }
 
         private void showLoad()
@@ -65,6 +65,11 @@ namespace PurchaseRequester.UI.WPF.Requests.AddRequests.ViewModel
         private void hideLoad()
         {
             visibility = false;
+        }
+
+        private void ClearForm()
+        {
+            Request = new Request();
         }
     }
 }
