@@ -11,7 +11,7 @@
         xmlns:historyrequestViewModel="clr-namespace:PurchaseRequester.UI.WPF.Requests.HistoryRequests.ViewModel"
         x:Class="PurchaseRequester.UI.WPF.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" FontSize="18">
+        Title="MainWindow" Height="650" Width="800" FontSize="18">
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type showAllRequestViewModel:ShowAllRequestViewModel}">
@@ -44,7 +44,7 @@
         
         <Menu FontSize="20">
             <MenuItem Header="_Options">
-                <MenuItem Header="_Option1"/>
+                <MenuItem Header="Config database address" Click="ConfigDatabaseAddress_Clicked"/>
                 <MenuItem Header="_Option2"/>
             </MenuItem>
         </Menu>
