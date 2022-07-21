@@ -4,6 +4,6 @@ namespace PurchaseRequester.Core.Requests.Commands
 {
     public interface IRemoveRequest
     {
-        Request Execute(Request request);
+        void Execute(Request request);
     }
 }

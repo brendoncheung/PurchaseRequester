@@ -30,10 +30,22 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel
             RequestRepository = requestRepository;
         }
 
-        public void ShowAllRequestByStatus(params RequestStatus[] status)
+        public async Task ShowAllRequestByStatus(params RequestStatus[] status)
         {
             Requests.Clear();
-            foreach (Request r in RequestRepository.GetRequestsByStatus(status))
+            var results = await RequestRepository.GetRequestsByStatus(status);
+            foreach (Request r in results)
+            {
+                Requests.Add(r);
+            }
+            RaisedPropertChanged(nameof(Requests));
+        }
+
+        public async void ShowAllRequest()
+        {
+            var results = await RequestRepository.GetRequests();
+            Requests.Clear();
+            foreach (Request r in results)
             {
                 Requests.Add(r);
             }
@@ -41,33 +53,23 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel
             RaisedPropertChanged(nameof(Requests));
         }
 
-        public void ShowAllRequest()
+        public void RemoveRequest(Request request)
         {
-            Requests.Clear();
-            foreach (Request r in RequestRepository.GetRequests())
-            {
-                Requests.Add(r);
-            }
-
-            RaisedPropertChanged(nameof(Requests));
+            RequestRepository.RemoveRequest(request);
         }
 
-        public Request RemoveRequest(Request request)
-        {
-            return RequestRepository.RemoveRequest(request);
-        }
-
-        private List<Request> GetAllRequest(Func<Request, bool> filter)
+        private async Task<List<Request>> GetAllRequest(Func<Request, bool> filter)
         {
             Requests.Clear();
-            foreach(Request r in RequestRepository.GetRequests())
+            var results = await RequestRepository.GetRequests();
+            foreach (Request r in results)
             {
                 if(filter(r))
                 {
                     Requests.Add(r);
                 }
             }
-            return RequestRepository.GetRequests().ToList();
+            return await RequestRepository.GetRequests();
         }
     }
 }

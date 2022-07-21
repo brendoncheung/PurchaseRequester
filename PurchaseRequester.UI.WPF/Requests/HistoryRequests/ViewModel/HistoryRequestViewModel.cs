@@ -30,10 +30,11 @@ namespace PurchaseRequester.UI.WPF.Requests.HistoryRequests.ViewModel
             this.requestRepository = repository;
         }
 
-        public void ShowAllCompletedRequests()
+        public async void ShowAllCompletedRequests()
         {
             Requests.Clear();
-            foreach (Request r in requestRepository.GetRequestsByStatus(RequestStatus.COMPLETED))
+            var results = await requestRepository.GetRequestsByStatus(RequestStatus.COMPLETED); 
+            foreach (Request r in results)
             {
                 Requests.Add(r);
             }

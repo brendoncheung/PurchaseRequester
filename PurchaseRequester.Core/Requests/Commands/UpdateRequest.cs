@@ -19,7 +19,7 @@ namespace PurchaseRequester.Core.Requests.Commands
 
         public void Execute(Request request)
         {
-            Database.UpdateRequest(request);
+            Database.UpdateRequestAsync(request);
         }
 
     }

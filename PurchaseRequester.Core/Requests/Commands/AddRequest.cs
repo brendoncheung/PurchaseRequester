@@ -19,8 +19,7 @@ namespace PurchaseRequester.Core.Requests.Commands
 
         public void Execute(Request request)
         {
-            database.AddRequest(request);
+            database.AddRequestAsync(request);
         }
-
     }
 }

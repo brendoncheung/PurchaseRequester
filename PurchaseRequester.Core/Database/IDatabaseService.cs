@@ -10,11 +10,11 @@ namespace PurchaseRequester.Core.Database
     public interface IDatabaseService
     {
         // Queries
-        public IEnumerable<Request> GetAllRequestList();
+        public Task<List<Request>> GetAllRequestList();
 
         // Commands
-        public void AddRequest(Request request);
-        public void RemoveRequest(Request request);
-        public void UpdateRequest(Request request);
+        public void AddRequestAsync(Request request);
+        public void RemoveRequestAsync(Request request);
+        public void UpdateRequestAsync(Request request);
     }
 }

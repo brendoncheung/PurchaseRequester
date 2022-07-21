@@ -17,9 +17,9 @@ namespace PurchaseRequester.UI.Console.Requests.Repository
             this.removeRequest = removeRequest;
         }
 
-        public List<Request> GetAllRequests()
+        public async Task<List<Request>> GetAllRequests()
         {
-            return _getAllRequests.Execute().ToList();
+            return await _getAllRequests.Execute();
         }
 
         public void AddARequest(Request request)
@@ -28,7 +28,7 @@ namespace PurchaseRequester.UI.Console.Requests.Repository
 
         }
 
-        public Request RemoveRequest(Request request)
+        public Task RemoveRequest(Request request)
         {
             return removeRequest.Execute(request);
         }

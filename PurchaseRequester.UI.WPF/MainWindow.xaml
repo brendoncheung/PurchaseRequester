@@ -44,7 +44,7 @@
         
         <Menu FontSize="20">
             <MenuItem Header="_Options">
-                <MenuItem Header="Config database address" Click="ConfigDatabaseAddress_Clicked"/>
+                <MenuItem Header="_Config database address" Click="ConfigDatabaseAddress_Clicked"/>
                 <MenuItem Header="_Option2"/>
             </MenuItem>
         </Menu>

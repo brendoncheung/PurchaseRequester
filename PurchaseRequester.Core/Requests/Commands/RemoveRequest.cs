@@ -17,10 +17,10 @@ namespace PurchaseRequester.Core.Requests.Commands
             this.databaseService = databaseService;
         }
 
-        public Request Execute(Request request)
+        public void Execute(Request request)
         {
-            databaseService.RemoveRequest(request);
-            return request;
+            databaseService.RemoveRequestAsync(request);
+            
         }
     }
 }

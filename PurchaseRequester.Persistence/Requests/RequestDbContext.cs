@@ -15,9 +15,9 @@ namespace PurchaseRequester.Persistence.Requests
             this.Database.EnsureCreated();
         }
 
-        public IEnumerable<Request> GetAllRequestList()
+        public Task<List<Request>> GetAllRequestList()
         {   
-            return Requests;
+            return Requests.ToListAsync();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -31,23 +31,22 @@ namespace PurchaseRequester.Persistence.Requests
             base.OnConfiguring(optionsBuilder);
         }
 
-        public void AddRequest(Request request)
+        public async void AddRequestAsync(Request request)
         {
             Requests.Add(request);
-            this.SaveChanges();
+            await this.SaveChangesAsync();
         }
 
-
-        public void RemoveRequest(Request request)
+        public async void RemoveRequestAsync(Request request)
         {
             this.Remove(request);
-            this.SaveChanges();
+            await this.SaveChangesAsync();
         }
 
-        public void UpdateRequest(Request request)
+        public async void UpdateRequestAsync(Request request)
         {
             this.Update(request);
-            this.SaveChanges();
+            await this.SaveChangesAsync();
         }
     }
 }

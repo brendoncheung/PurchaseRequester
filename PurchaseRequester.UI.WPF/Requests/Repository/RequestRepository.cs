@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PurchaseRequester.UI.WPF.Repository.Requests
@@ -25,20 +26,21 @@ namespace PurchaseRequester.UI.WPF.Repository.Requests
             this.removeRequest = removeRequest;
         }
 
-        public List<Request> GetRequests()
+        public async Task<List<Request>> GetRequests()
         {
-            return getAllRequest.Execute().ToList();
+            var results = await getAllRequest.Execute();
+            return results;
         }
 
-        public List<Request> GetRequestsByStatus(params RequestStatus[] status)
+        public async Task<List<Request>> GetRequestsByStatus(params RequestStatus[] status)
         {
-            return getAllRequest.Execute().Where((x) => status.Contains(x.Status)).ToList();
+            var results = await getAllRequest.Execute();
+            return results.Where((x) => status.Contains(x.Status)).ToList();
         }
 
-        public Request RemoveRequest(Request request)
+        public void RemoveRequest(Request request)
         {
             removeRequest.Execute(request);
-            return request;
         }
 
         public void AddRequest(Request request)

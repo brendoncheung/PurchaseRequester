@@ -12,7 +12,7 @@ namespace PurchaseRequester.Core.Requests.Queries
             this.database = database;
         }
 
-        public IEnumerable<Request> Execute()
+        public Task<List<Request>> Execute()
         {
             return database.GetAllRequestList();
         }
