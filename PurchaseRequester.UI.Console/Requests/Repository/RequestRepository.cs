@@ -28,9 +28,9 @@ namespace PurchaseRequester.UI.Console.Requests.Repository
 
         }
 
-        public Task RemoveRequest(Request request)
+        public void RemoveRequest(Request request)
         {
-            return removeRequest.Execute(request);
+            removeRequest.Execute(request);
         }
 
         public void UpdateRequest(Request request)

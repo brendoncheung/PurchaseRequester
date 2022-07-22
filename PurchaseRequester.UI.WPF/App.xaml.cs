@@ -48,6 +48,8 @@ namespace PurchaseRequester.UI.WPF
             service.AddSingleton<HistoryRequestViewModel>();
 
             service.AddTransient<MainWindow>();
+
+            
         }
 
         protected override void OnStartup(StartupEventArgs e)

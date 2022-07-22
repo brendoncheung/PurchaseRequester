@@ -10,7 +10,7 @@ namespace PurchaseRequester.Domain.Requests
     public class Request
     {
         private int id;
-        private DateTime createdTime = DateTime.Now;
+        private DateTime createdTime = DateTime.UtcNow;
         private RequestStatus status = RequestStatus.NEW;
 
         public int Id { get => id; set => id = value; }

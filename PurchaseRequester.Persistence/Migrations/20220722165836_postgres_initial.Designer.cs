@@ -2,8 +2,10 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+using PurchaseRequester.Domain.Requests;
 using PurchaseRequester.Persistence.Requests;
 
 #nullable disable
@@ -11,9 +13,10 @@ using PurchaseRequester.Persistence.Requests;
 namespace PurchaseRequester.Persistence.Migrations
 {
     [DbContext(typeof(RequestDbContext))]
-    partial class RequestDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220722165836_postgres_initial")]
+    partial class postgres_initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,9 +35,8 @@ namespace PurchaseRequester.Persistence.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Catagory")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<RequestCatagory>("Catagory")
+                        .HasColumnType("request_catagory");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
@@ -57,9 +59,8 @@ namespace PurchaseRequester.Persistence.Migrations
                     b.Property<double>("Quantity")
                         .HasColumnType("double precision");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<RequestStatus>("Status")
+                        .HasColumnType("request_status");
 
                     b.Property<string>("UsedOn")
                         .HasColumnType("text");

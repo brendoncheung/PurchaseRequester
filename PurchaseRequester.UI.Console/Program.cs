@@ -28,7 +28,7 @@ repo.AddARequest(request);
 
 request.PartNo = "2345";
 
-var list = repo.GetAllRequests().ToList();
+var list = await repo.GetAllRequests();
 Console.WriteLine("Items in db: ");
 foreach (Request r in list)
 {
