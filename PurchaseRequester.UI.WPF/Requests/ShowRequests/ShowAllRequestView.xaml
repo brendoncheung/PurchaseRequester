@@ -24,6 +24,7 @@
         <StackPanel Grid.Row="1">
             <Button Content="Refresh" Click="Refresh_Clicked"/>
             <Button Content="Remove" Click="Remove_Clicked"/>
+            <Button Content="Save" Click="Save_Clicked"/>
         </StackPanel>
     </Grid>
 </UserControl>

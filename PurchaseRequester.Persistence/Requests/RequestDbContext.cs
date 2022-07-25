@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using Npgsql;
 using PurchaseRequester.Core.Database;
 using PurchaseRequester.Domain.Requests;
+using System.Configuration;
 
 namespace PurchaseRequester.Persistence.Requests
 {
@@ -29,7 +30,10 @@ namespace PurchaseRequester.Persistence.Requests
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // 
+
+            //var cs = ConfigurationManager.ConnectionStrings["OBDC"].ConnectionString;
+            //"User Id=postgres;Password=Wingsuncheung2609;Server=db.pidijpusjwzlhrkpcodl.supabase.co;Port=5432;Database=postgres"
+
             optionsBuilder.
                 UseNpgsql("User Id=postgres;Password=Wingsuncheung2609;Server=db.pidijpusjwzlhrkpcodl.supabase.co;Port=5432;Database=postgres");
             //optionsBuilder.UseSqlite(
@@ -65,6 +69,11 @@ namespace PurchaseRequester.Persistence.Requests
         public async void UpdateRequestAsync(Request request)
         {
             this.Update(request);
+            await this.SaveChangesAsync();
+        }
+
+        public async void SaveChanged()
+        {
             await this.SaveChangesAsync();
         }
     }

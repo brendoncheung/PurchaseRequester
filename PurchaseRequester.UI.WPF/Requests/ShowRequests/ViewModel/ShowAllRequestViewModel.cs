@@ -34,42 +34,24 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel
         {
             Requests.Clear();
             var results = await RequestRepository.GetRequestsByStatus(status);
-            foreach (Request r in results)
-            {
-                Requests.Add(r);
-            }
-            RaisedPropertChanged(nameof(Requests));
+            Requests = new ObservableCollection<Request>(results);
         }
 
         public async void ShowAllRequest()
         {
-            var results = await RequestRepository.GetRequests();
             Requests.Clear();
-            foreach (Request r in results)
-            {
-                Requests.Add(r);
-            }
+            var results = await RequestRepository.GetRequests();
+            Requests = new ObservableCollection<Request>(results);
+        }
 
-            RaisedPropertChanged(nameof(Requests));
+        public void SaveChanges()
+        {
+            throw new NotImplementedException();
         }
 
         public void RemoveRequest(Request request)
         {
             RequestRepository.RemoveRequest(request);
-        }
-
-        private async Task<List<Request>> GetAllRequest(Func<Request, bool> filter)
-        {
-            Requests.Clear();
-            var results = await RequestRepository.GetRequests();
-            foreach (Request r in results)
-            {
-                if(filter(r))
-                {
-                    Requests.Add(r);
-                }
-            }
-            return await RequestRepository.GetRequests();
         }
     }
 }

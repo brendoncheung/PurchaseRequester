@@ -47,5 +47,10 @@ namespace PurchaseRequester.UI.WPF.Repository.Requests
         {
             addRequest.Execute(request);
         }
+
+        public void SaveChanges()
+        {
+
+        }
     }
 }

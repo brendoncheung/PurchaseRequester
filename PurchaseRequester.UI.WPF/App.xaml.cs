@@ -26,6 +26,7 @@ namespace PurchaseRequester.UI.WPF
 
             ConfigureServices(service);
             serviceProvider = service.BuildServiceProvider();
+            
         }
 
         private void ConfigureServices(ServiceCollection service)
@@ -36,7 +37,7 @@ namespace PurchaseRequester.UI.WPF
             service.AddTransient<IRemoveRequest, RemoveRequest>();
 
             // Database
-            service.AddSingleton<IDatabaseService, RequestDbContext>();
+            service.AddDbContext<IDatabaseService, RequestDbContext>(ServiceLifetime.Transient);
 
             // Repositories
             service.AddSingleton<RequestRepository>();
@@ -49,7 +50,6 @@ namespace PurchaseRequester.UI.WPF
 
             service.AddTransient<MainWindow>();
 
-            
         }
 
         protected override void OnStartup(StartupEventArgs e)

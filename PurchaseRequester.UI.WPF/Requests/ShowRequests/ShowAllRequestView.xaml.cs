@@ -40,5 +40,10 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests
                 ShowRequests();
             }
         }
+
+        private void Save_Clicked(object sender, RoutedEventArgs e)
+        {
+            ViewModel.SaveChanges();
+        }
     }
 }
