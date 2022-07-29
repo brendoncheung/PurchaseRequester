@@ -35,6 +35,7 @@ namespace PurchaseRequester.UI.WPF
             service.AddTransient<IAddRequest, AddRequest>();
             service.AddTransient<IGetAllRequestList, GetAllRequestList>();
             service.AddTransient<IRemoveRequest, RemoveRequest>();
+            service.AddTransient<IUpdateRequest, UpdateRequest>();
 
             // Database
             service.AddDbContext<IDatabaseService, RequestDbContext>(ServiceLifetime.Transient);

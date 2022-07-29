@@ -53,5 +53,10 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests.ViewModel
         {
             RequestRepository.RemoveRequest(request);
         }
+
+        public void UpdateRequest(Request request)
+        {
+            RequestRepository.UpdateRequest(request);
+        }
     }
 }

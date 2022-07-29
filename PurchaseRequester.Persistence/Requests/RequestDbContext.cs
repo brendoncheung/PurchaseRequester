@@ -15,6 +15,7 @@ namespace PurchaseRequester.Persistence.Requests
         {
             NpgsqlConnection.GlobalTypeMapper.MapEnum<RequestCatagory>();
             NpgsqlConnection.GlobalTypeMapper.MapEnum<RequestStatus>();
+            
         }
 
         public RequestDbContext()
@@ -69,11 +70,6 @@ namespace PurchaseRequester.Persistence.Requests
         public async void UpdateRequestAsync(Request request)
         {
             this.Update(request);
-            await this.SaveChangesAsync();
-        }
-
-        public async void SaveChanged()
-        {
             await this.SaveChangesAsync();
         }
     }

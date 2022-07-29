@@ -15,15 +15,19 @@ namespace PurchaseRequester.UI.WPF.Repository.Requests
         private readonly IGetAllRequestList getAllRequest;
         private readonly IAddRequest addRequest;
         private readonly IRemoveRequest removeRequest;
+        private readonly IUpdateRequest updateRequest;
 
         public RequestRepository(
             IGetAllRequestList getAllRequest, 
             IAddRequest addRequest, 
-            IRemoveRequest removeRequest)
+            IRemoveRequest removeRequest,
+            IUpdateRequest updateRequest
+            )
         {
             this.getAllRequest = getAllRequest;
             this.addRequest = addRequest;
             this.removeRequest = removeRequest;
+            this.updateRequest = updateRequest;
         }
 
         public async Task<List<Request>> GetRequests()
@@ -48,9 +52,9 @@ namespace PurchaseRequester.UI.WPF.Repository.Requests
             addRequest.Execute(request);
         }
 
-        public void SaveChanges()
+        public void UpdateRequest(Request request)
         {
-
+            updateRequest.Execute(request);
         }
     }
 }

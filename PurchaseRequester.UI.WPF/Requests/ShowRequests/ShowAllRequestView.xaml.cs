@@ -7,7 +7,6 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests
 {
     public partial class ShowAllRequestView : UserControl
     {
-
         public ShowAllRequestViewModel ViewModel { get; private set; }
        
         public ShowAllRequestView()
@@ -33,17 +32,26 @@ namespace PurchaseRequester.UI.WPF.Requests.ShowRequests
 
         private void Remove_Clicked(object sender, RoutedEventArgs e)
         {
-            var selectedRequest = RequestGrid.dataGrid.SelectedItem as Request;
-            if(selectedRequest != null)
+            var request = selectedRequest();
+            if(request != null)
             {
-                ViewModel.RemoveRequest(selectedRequest);
+                ViewModel.RemoveRequest(request);
                 ShowRequests();
             }
         }
 
+        private Request selectedRequest()
+        {
+            return RequestGrid.dataGrid.SelectedItem as Request;
+        }
+
         private void Save_Clicked(object sender, RoutedEventArgs e)
         {
-            ViewModel.SaveChanges();
+            var request = selectedRequest();
+            if(request != null)
+            {
+                ViewModel.UpdateRequest(request);
+            }
         }
     }
 }
